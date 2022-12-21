@@ -1,0 +1,178 @@
+body {
+  font-family: "Helvetica", "Arial", sans-serif;
+  background-color: #c2dbff3d;
+}
+
+.nav-header-custom {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.Hero {
+  background-color: #009dff11 !important;
+  background-image: url("../img/PelangganRumahTangga.png") !important;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 700px;
+}
+.card-hero {
+  position: absolute;
+  background: #fff;
+  margin-top: 130px;
+  border-radius: 16px;
+  padding: 40px;
+
+  .title-card-hero {
+    font-weight: 700;
+    font-size: 54px;
+    width: 682px;
+    text-align: left;
+    span {
+      color: $blue;
+    }
+  }
+  .content-card-hero {
+    width: 543px;
+    text-align: left;
+    font-size: 18px;
+    font-weight: 500;
+    color: $gray-600;
+  }
+}
+
+.btn-whatsApp {
+  color: #fff !important;
+  background: #7db139;
+  padding: 12px 24px;
+  display: flex;
+  border-radius: 99px;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  margin-left: 10px;
+  &:hover {
+    text-decoration: none;
+  }
+  .title {
+    font-size: 16px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+  }
+  svg {
+    margin-right: 5px;
+    width: 25px;
+    height: 25px;
+  }
+}
+
+.btn-default {
+  color: #fff !important;
+  background: $blue;
+  padding: 12px 24px;
+  display: flex;
+  border-radius: 99px;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  margin-left: 10px;
+  &:hover {
+    text-decoration: none;
+  }
+  .title {
+    font-size: 16px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+  }
+}
+
+.btn-light-industri {
+  color: $blue !important;
+  background: $blueLight;
+  padding: 12px 24px;
+  display: flex;
+  border-radius: 99px;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  margin-left: 10px;
+  &:hover {
+    text-decoration: none;
+  }
+  .title {
+    font-size: 16px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+  }
+  svg {
+    width: 22px;
+    margin-left: 10px;
+    margin-top: -3px;
+  }
+}
+
+.seccsion {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .title-seccsion {
+    font-size: 34px;
+    font-weight: 700;
+    line-height: 36px;
+    margin-top: 80px;
+  }
+  .desc-seccsion {
+    font-size: 18px;
+    font-weight: 500;
+    width: 626px;
+    margin-top: 10px;
+    color: $gray-600;
+  }
+  .content-card-seccsion {
+    display: flex;
+    width: 1200px;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    .card-seccsion {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 24px;
+      background: #fff;
+      border-radius: 24px;
+      width: 375px;
+      height: 248px;
+
+      svg {
+        border-radius: 24px;
+        background: $blueLight;
+        width: 64px;
+        height: 64px;
+        color: $blue;
+        padding: 10px;
+      }
+      .title-card-seccsion {
+        font-size: 24px;
+        font-weight: 700;
+        margin-top: 10px;
+      }
+      .desc-card-seccsion {
+        font-size: 16px;
+        font-weight: 500;
+        color: $gray-600;
+      }
+    }
+  }
+  .syarat-dan-ketentuan {
+    margin-top: 50px;
+    font-size: 14px;
+    font-weight: 500;
+    font-style: italic;
+    color: $gray-600;
+  }
+}
