@@ -14,16 +14,23 @@ const Seccsion = () => {
         </div>
 
         <div className='content-card-seccsion'>
-          {itemSeccsion.map(data => {
+          {itemSeccsion.map((data, idx) => {
             return (
-              <div className='card-seccsion mt-4' data-aos="fade-up">
+              <div className='card-seccsion mt-4' key={`data-seccsion-${data.title}-${idx}`} data-aos="fade-up">
                 <div>
                   {data.logo}
                   <div className='title-card-seccsion'>
                     {data.title}
                   </div>
                   <div className='desc-card-seccsion'>
-                    {data.decs}
+                    {
+                      data.gift ? data.gift.map(item => {
+                        return (
+                          <div className='d-flex align-items-center'>
+                            <div className='circle' />{item}
+                          </div>
+                        )
+                      }) : data.decs}
                   </div>
                 </div>
               </div>

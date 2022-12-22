@@ -18,6 +18,14 @@ body {
   background-size: cover;
   min-height: 700px;
 }
+
+.circle {
+  background: $gray-600;
+  border-radius: 20px;
+  width: 10px;
+  height: 10px;
+  margin-right: 10px;
+}
 .card-hero {
   position: absolute;
   background: #fff;
@@ -174,5 +182,161 @@ body {
     font-weight: 500;
     font-style: italic;
     color: $gray-600;
+  }
+}
+
+.people {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .title-people {
+    font-size: 34px;
+    font-weight: 700;
+    line-height: 36px;
+    margin-top: 80px;
+  }
+  .card-people {
+    background: #fff;
+    width: 583px;
+    height: 280px;
+    padding: 32px;
+    border-radius: 16px;
+    margin-top: 60px;
+    border: 1px solid #e5e5e5;
+
+    img {
+      border-radius: 99px;
+      width: 96px;
+      height: 96px;
+      margin-right: 15px;
+    }
+    .name-people {
+      font-weight: 700;
+      font-size: 24px;
+      color: $black2;
+    }
+    .location-people {
+      font-size: 16px;
+      font-weight: 500;
+      color: $gray-700;
+    }
+    .desc-people {
+      font-size: 16px;
+      font-weight: 500;
+      color: $gray-600;
+      text-align: left;
+      margin-top: 10px;
+    }
+  }
+
+  .paging-people-arraw {
+    background: #fff;
+    color: $blue;
+    border-radius: 99px;
+    border: 1px solid $gray-500;
+    padding: 10px;
+    cursor: pointer;
+    &:hover {
+      background: $blue;
+      color: #fff;
+    }
+  }
+  .paging-number-people {
+    font-size: 16px;
+    font-weight: 700;
+    color: $blue;
+  }
+}
+
+.ImageDesc {
+  margin-top: 80px;
+  .imageFirst {
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    background-image: linear-gradient(to bottom right, #0069b449, #0069b4),
+      url("../img/image1.png");
+    background-size: cover;
+    min-height: 384px;
+  }
+  .imageSeccond {
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    background-image: linear-gradient(to bottom right, #0069b449, #0069b4),
+      url("../img/image2.png");
+    background-size: cover;
+    min-height: 384px;
+  }
+  .content-image {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 242px 0px 0px 107px;
+    .number-content {
+      font-size: 48px;
+      color: #fff;
+      font-weight: 700;
+    }
+    .decs-content {
+      display: flex;
+      justify-content: space-between;
+      font-size: 18px;
+      font-weight: 700;
+      color: #fff;
+      .update-content {
+        font-size: 12px;
+        font-weight: 500;
+        margin-left: 183px;
+      }
+    }
+  }
+}
+
+.proses {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .title-proses {
+    font-size: 34px;
+    font-weight: 700;
+    line-height: 36px;
+    margin-top: 80px;
+  }
+  .desc-proses {
+    font-size: 18px;
+    font-weight: 500;
+    width: 668px;
+    margin-top: 10px;
+    color: $gray-600;
+  }
+  img {
+    width: 403px;
+    height: 252px;
+    border-radius: 16px;
+  }
+
+  .number-content-proses {
+    font-size: 32px;
+    color: $blue;
+    font-weight: 700;
+    background-color: $blueLight;
+    border-radius: 16px;
+    height: 56px;
+    width: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .title-content-proses {
+    font-size: 24px;
+    font-weight: 700;
+    margin-top: 10px;
+  }
+  .desc-content-proses {
+    font-size: 16px;
+    font-weight: 500;
+    color: #737373;
+    text-align: left;
+    margin-top: 20px;
   }
 }
