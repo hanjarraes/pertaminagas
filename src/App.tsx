@@ -7,15 +7,9 @@ import './App.css';
 import TheLayout from './pages/TheLayout';
 
 AOS.init();
-class App extends React.Component {
-  render() {
-    return (
-      <div className="App">
-        <TheLayout />
-     </div>
-    );
-  }
-}
 
-
-export default App;
+export const App: React.FC = () => (
+  <div className="App">
+    <TheLayout />
+  </div>
+);
