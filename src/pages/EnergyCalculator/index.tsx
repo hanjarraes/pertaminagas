@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { useForm, FormProvider } from 'react-hook-form';
 
@@ -49,6 +49,7 @@ const FORM_STEPS: FormStep[] = [
 ]
 
 const EnergyCalculator = () => {
+    const [isCalculating, setIsCalculating] = useState<boolean>(false)
     const {
         percentage,
         currentStep,
@@ -73,17 +74,13 @@ const EnergyCalculator = () => {
         return back()
     }
 
-    const onNext = () => {
+    function onSubmit(data: FormSchema) {
         if (isLastStep) {
-            return onSubmit()
-        }
-
-        return next()
-    }
-
-    function onSubmit() {
-        if (isLastStep) {
-            alert("Calculated");
+            setIsCalculating(true)
+            setTimeout(() => {
+                alert(JSON.stringify(data, null, 2));
+                setIsCalculating(false)
+            }, 1000);
         }
     }
 
@@ -105,12 +102,17 @@ const EnergyCalculator = () => {
                                     <Button type='secondary' onClick={onBack}>
                                         {isFirstStep ? 'Back' : 'Before'}
                                     </Button>
-                                    <Button
-                                        disabled={!formMethods.formState.isValid}
-                                        onClick={onNext}
+                                    {isLastStep ? <Button
+                                        disabled={!formMethods.formState.isValid || isCalculating}
+                                        onClick={formMethods.handleSubmit(onSubmit)}
                                     >
-                                        {isLastStep ? 'Calculate' : 'Next'}
-                                    </Button>
+                                        {isCalculating ? 'Calculating...' : 'Calculate'}
+                                    </Button> : <Button
+                                        disabled={!formMethods.formState.isValid || isCalculating}
+                                        onClick={next}
+                                    >
+                                        Next
+                                    </Button>}
 
                                 </div>
                             </div>
