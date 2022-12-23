@@ -20,7 +20,7 @@ const FuelForm = () => {
                     rules={{
                         validate: {
                             maxLength: (value) =>
-                                value.length <= 3 || "Maximum 3 options are selected",
+                                value.length <= 2 || "Maximum 2 options are selected",
                             minLength: (value) =>
                                 Boolean(value.length) || "Minimum 1 option are selected"
                         }
@@ -28,7 +28,7 @@ const FuelForm = () => {
                     render={({ field: { onChange, value } }) => (
                         <ImageSelect
                             data={fuels.map((fuel) => ({
-                                value: fuel.name,
+                                value: fuel.title,
                                 label: fuel.title,
                                 image: fuel.image
                             }))}
@@ -37,7 +37,9 @@ const FuelForm = () => {
                         />
                     )}
                 />
-                {errors.fuels?.message && <p className='text-danger mt-2'>{errors.fuels.message}</p>}
+                {errors.fuels?.message && <div className="invalid-feedback d-block">
+                    {errors.fuels.message}
+                </div>}
             </div>
         </FormWrapper>
     )
