@@ -1,18 +1,18 @@
-import { ReactElement, useState } from 'react'
+import { useState } from 'react'
 import { FormStep } from '../types/form'
 
 export function useMultistepForm(steps: FormStep[]) {
   const [currentStepIndex, setCurrentStepIndex] = useState(0)
 
   function back() {
-    setCurrentStepIndex(i => {
+    setCurrentStepIndex((i) => {
       if (i <= 0) return i
       return i - 1
     })
   }
 
   function next() {
-    setCurrentStepIndex(i => {
+    setCurrentStepIndex((i) => {
       if (i >= steps.length - 1) return i
       return i + 1
     })
@@ -31,6 +31,6 @@ export function useMultistepForm(steps: FormStep[]) {
     percentage: Math.floor(((currentStepIndex + 1) / steps.length) * 100),
     goTo,
     back,
-    next
+    next,
   }
 }

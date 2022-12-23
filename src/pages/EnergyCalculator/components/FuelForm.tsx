@@ -1,12 +1,43 @@
 import React from 'react'
+import { useFormContext, Controller } from 'react-hook-form';
+import { FormSchema } from '../types/form';
+import { fuels } from '../utils/fuel';
 import { FormWrapper } from './FormWrapper'
+import { ImageSelect } from './ImageSelect';
 
 const FuelForm = () => {
+    const {
+        formState: { errors }
+    } = useFormContext<FormSchema>();
+
     return (
         <FormWrapper title='Current usage' description='We need to know your current energy usage to figure out how much of natural gas would fulfill your business needs'>
             <div className='px-3 py-3 px-lg-7 py-lg-3'>
-                <h5 className='title-s'>Select your current fuel</h5>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Harum, nihil odit fugiat explicabo qui nam ullam consequatur necessitatibus quidem sequi labore praesentium aliquam cum sit, vitae voluptates saepe maiores eveniet? Ipsam modi sit id, eum, tenetur quo illo accusamus voluptate dolorum hic ea! Error id autem, culpa eos fugiat minus vel ea eum aut quasi quod nihil ad ullam similique eius incidunt dolore recusandae qui, vitae fugit ut quisquam. Ipsum sint expedita cum quae fugiat dolores corrupti a autem qui adipisci! Quasi vel obcaecati reiciendis temporibus perspiciatis velit! Quidem temporibus placeat adipisci iure laborum facere inventore eos maiores distinctio quia, illum qui animi ut quasi reiciendis sed voluptates? Assumenda, vel enim deleniti possimus nesciunt nihil voluptatum reprehenderit voluptatibus sunt illo, eligendi, quo consectetur eum quam quae necessitatibus doloremque inventore molestiae eos ab. Amet, dicta aliquam nulla molestias harum nemo eos maxime voluptas. Qui sed officiis nesciunt cum cupiditate ea mollitia, esse saepe quasi similique deserunt repellat modi, dicta sequi facere dignissimos rerum consectetur nobis enim nostrum nam! Quam saepe soluta rerum iste. At, distinctio odit. Debitis ducimus reiciendis molestias eum ea qui quos exercitationem ad nemo, distinctio perspiciatis maxime nihil architecto ipsum, nobis natus ipsam nisi nam. Officia in ut iure, nihil quo accusamus, dolorum, cupiditate aperiam aspernatur magni quibusdam repellendus facere quasi reiciendis odio similique voluptatibus vel ipsa dignissimos provident aliquid reprehenderit ipsam ab harum. Fugiat perspiciatis, odio sed cupiditate nobis ut, commodi, sequi adipisci delectus maxime fugit? Sit explicabo est impedit eius excepturi dignissimos exercitationem itaque cum quisquam a! Iusto neque, eum hic magni pariatur error? Minima molestias voluptatem ab! Minima necessitatibus eligendi, ullam repellat ducimus at quod placeat tempore natus similique, error quae repellendus. Cumque autem porro aspernatur illum pariatur corrupti animi facilis non quibusdam cupiditate recusandae perspiciatis sint accusamus, praesentium repudiandae quaerat enim iusto voluptates! Velit, similique obcaecati, soluta rerum provident magnam exercitationem aspernatur nobis perferendis hic eveniet quas praesentium dignissimos vero ipsa beatae labore voluptas blanditiis totam facere earum qui distinctio! Laborum, fugiat repellat optio voluptatem expedita amet cupiditate aut, nemo voluptatum officiis delectus! Voluptate enim inventore consequatur tempora odio. Inventore, commodi eius repellat nulla ratione debitis nihil dignissimos soluta natus. At ipsam aperiam doloremque qui cupiditate illo officiis consequatur, non earum modi similique debitis laborum blanditiis animi velit impedit quisquam minus amet delectus distinctio hic suscipit corrupti veniam! Hic illum laborum eaque voluptates dignissimos. In tempora ad aut sed assumenda deserunt reiciendis possimus, omnis ab veritatis cumque minus necessitatibus labore perferendis fugit iure cupiditate sint nobis, esse incidunt ratione corrupti accusantium repellendus dicta? Quas reprehenderit esse voluptate ducimus vero sed eveniet eius, possimus commodi nisi, consectetur porro, odit ea libero quidem totam ratione minus rem iste alias hic beatae! Iusto minus mollitia, at quaerat suscipit nobis distinctio. Eos placeat dolores expedita, aspernatur modi, repellendus repellat quibusdam beatae vero, harum reiciendis ea ipsum! Sint esse nemo quasi provident optio nulla fugiat reiciendis repellendus id tempora temporibus vero in officiis ducimus, magnam, nihil exercitationem aspernatur numquam pariatur. Unde in explicabo numquam ex aliquid rem, reprehenderit exercitationem!</p>
+                <h5 className='title-s mb-4'>Select your current fuel</h5>
+                <Controller
+                    name="fuels"
+                    defaultValue={[]}
+                    rules={{
+                        validate: {
+                            maxLength: (value) =>
+                                value.length <= 3 || "Maximum 3 options are selected",
+                            minLength: (value) =>
+                                Boolean(value.length) || "Minimum 1 option are selected"
+                        }
+                    }}
+                    render={({ field: { onChange, value } }) => (
+                        <ImageSelect
+                            data={fuels.map((fuel) => ({
+                                value: fuel.name,
+                                label: fuel.title,
+                                image: fuel.image
+                            }))}
+                            value={value}
+                            onChange={onChange}
+                        />
+                    )}
+                />
+                {errors.fuels?.message && <p className='text-danger mt-2'>{errors.fuels.message}</p>}
             </div>
         </FormWrapper>
     )

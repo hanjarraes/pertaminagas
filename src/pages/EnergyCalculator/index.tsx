@@ -1,5 +1,7 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
+import { useForm, FormProvider } from 'react-hook-form';
+
 import AddressForm from './components/AddressForm';
 import BuildingConditionForm from './components/BuildingConditionForm';
 import BussinessTypeForm from './components/BussinessTypeForm';
@@ -55,6 +57,12 @@ const EnergyCalculator = () => {
         back,
         next
     } = useMultistepForm(FORM_STEPS);
+
+    const formMethods = useForm<FormSchema>({
+        mode: "onChange",
+        defaultValues: INITIAL_DATA
+    });
+
     const navigate = useNavigate()
 
     const onBack = () => {
@@ -80,34 +88,37 @@ const EnergyCalculator = () => {
     }
 
     return (
-        <form>
-            <div className='calculator-container'>
-                <div className="d-flex w-100 h-100">
-                    <div className="d-none d-lg-block section-left">
-                        <img src={currentStep.image} alt="Thumbnail" />
-                    </div>
-                    <div className="section-right relative">
-                        <div className="content">{currentStep.renderer}</div>
-                        <div className="navigation">
-                            <div className='progress-bar'>
-                                <div style={{ width: `${percentage}%` }} className="bar"></div>
-                            </div>
-                            <div className='d-flex align-items-center justify-content-between px-3 py-3 px-lg-7 py-lg-4'>
-                                <Button type='secondary' onClick={onBack}>
-                                    {isFirstStep ? 'Back' : 'Before'}
-                                </Button>
-                                <Button
-                                    onClick={onNext}
-                                >
-                                    {isLastStep ? 'Calculate' : 'Next'}
-                                </Button>
+        <FormProvider {...formMethods}>
+            <form>
+                <div className='calculator-container'>
+                    <div className="d-flex w-100 h-100">
+                        <div className="d-none d-lg-block section-left">
+                            <img src={currentStep.image} alt="Thumbnail" />
+                        </div>
+                        <div className="section-right relative">
+                            <div className="content">{currentStep.renderer}</div>
+                            <div className="navigation">
+                                <div className='progress-bar'>
+                                    <div style={{ width: `${percentage}%` }} className="bar"></div>
+                                </div>
+                                <div className='d-flex align-items-center justify-content-between px-3 py-3 px-lg-7 py-lg-4'>
+                                    <Button type='secondary' onClick={onBack}>
+                                        {isFirstStep ? 'Back' : 'Before'}
+                                    </Button>
+                                    <Button
+                                        disabled={!formMethods.formState.isValid}
+                                        onClick={onNext}
+                                    >
+                                        {isLastStep ? 'Calculate' : 'Next'}
+                                    </Button>
 
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </form>
+            </form>
+        </FormProvider>
     )
 }
 

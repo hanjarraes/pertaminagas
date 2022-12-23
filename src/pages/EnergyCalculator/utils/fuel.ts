@@ -2,53 +2,53 @@ export const fuels = [
   {
     name: 'COAL',
     title: 'Coal',
-    image: 'coal.png',
+    image: require('assets/img/fuels/coal.png'),
     units: ['Rupiah', 'Tons'],
     multiplyUnit: 1000,
     price: 4810,
     naturalGas: 575,
-    co2Emission: 2.42
+    co2Emission: 2.42,
   },
   {
     name: 'LPG_50KG',
     title: 'LPG 50Kg',
-    image: 'lpg50.png',
+    image: require('assets/img/fuels/lpg-50kg.png'),
     units: ['Rupiah', 'Tank'],
     multiplyUnit: 50,
     price: 17750,
     naturalGas: 1265,
-    co2Emission: 3.06
+    co2Emission: 3.06,
   },
   {
     name: 'LPG_BULK',
     title: 'LPG Bulk',
-    image: 'lpg50.png',
+    image: require('assets/img/fuels/lpg-bulk.png'),
     units: ['Rupiah', 'Kg'],
     multiplyUnit: 1,
     price: 17750,
     naturalGas: 1265,
-    co2Emission: 3.06
+    co2Emission: 3.06,
   },
   {
     name: 'HSD',
     title: 'HSD/Industrial Diesel',
-    image: 'coal.png',
+    image: require('assets/img/fuels/hsd.png'),
     units: ['Rupiah', 'Liter'],
     multiplyUnit: 1,
     price: 24450,
     naturalGas: 1022,
-    co2Emission: 2.68
+    co2Emission: 2.68,
   },
   {
     name: 'MFO',
     title: 'MFO',
-    image: 'MFO.png',
+    image: require('assets/img/fuels/mfo.png'),
     units: ['Rupiah', 'Liter'],
     multiplyUnit: 1,
     price: 19500,
     naturalGas: 1045,
-    co2Emission: 3.2
-  }
+    co2Emission: 3.2,
+  },
 ]
 
 export function calculateEnergy(
@@ -56,7 +56,7 @@ export function calculateEnergy(
   unit: string,
   usageValue: number
 ): any | undefined {
-  const target = fuels.find(fuel => fuel.name === name)
+  const target = fuels.find((fuel) => fuel.name === name)
 
   if (!target) {
     return undefined
@@ -142,6 +142,6 @@ export function calculateEnergy(
     energyCostsSavingPerMonth,
     taxSaving,
     co2EmissionReduction,
-    totalSaving
+    totalSaving,
   }
 }
