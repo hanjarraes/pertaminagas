@@ -1,25 +1,22 @@
 export const fuels = [
-  // DONE but need tons comparation
   {
     name: 'COAL',
     title: 'Coal',
     image: require('assets/img/fuels/coal.png'),
     units: ['Rupiah', 'Tons'],
-    price: 4388428,
+    price: 4391369,
     naturalGas: 575,
     co2Emission: 2419,
   },
-  // DONE
   {
     name: 'LPG_50KG',
-    title: 'LPG 50Kg',
+    title: 'LPG 50 Kg',
     image: require('assets/img/fuels/lpg-50kg.png'),
     units: ['Rupiah', 'Tank'],
     price: 367750,
     naturalGas: 63.25,
     co2Emission: 153.0,
   },
-  // DONE
   {
     name: 'LPG_BULK',
     title: 'LPG Bulk',
@@ -29,7 +26,6 @@ export const fuels = [
     naturalGas: 1.265,
     co2Emission: 3.06,
   },
-  // DONE
   {
     name: 'HSD',
     title: 'HSD/Industrial Diesel',
@@ -39,7 +35,6 @@ export const fuels = [
     naturalGas: 1.022,
     co2Emission: 2.68,
   },
-  // DONE
   {
     name: 'MFO',
     title: 'MFO',
@@ -96,8 +91,7 @@ export function calculateEnergy(
     volume = Number(usageValue * target.price)
     volumeM3 = Number(usageValue * target.naturalGas)
     naturalGasCosts = Number(volumeM3 * BASE_NATURAL_GAS_PRICE)
-    //   ! 1a. add fuel conversion (/ FUEL_CONVERSION) if (LPG 50KG Tank, LPG Bulk)?
-    fuelEmission = usageValue * target.co2Emission
+    fuelEmission = (usageValue * target.co2Emission) / FUEL_CONVERSION
     energyCostsSavingPerMonth = volume - naturalGasCosts
   }
 
@@ -119,9 +113,7 @@ export function calculateEnergy(
   fuelTax = fuelEmission * TAX_MULTIPLIER
   naturalGasTax = naturalGasEmission * TAX_MULTIPLIER
 
-  // ! 1b. impacted to here
   console.log(fuelEmission)
-  // ! 1c. impacted to here
   console.log(fuelTax)
   console.log(naturalGasEmission)
   console.log(naturalGasTax)
@@ -132,11 +124,8 @@ export function calculateEnergy(
   const totalSaving = Math.ceil(energyCostsSavingPerMonth + taxSaving)
 
   console.log(energyCostsSavingPerMonth)
-  // ! 1d. impacted to here
   console.log(taxSaving)
-  // ! 1e. impacted to here
   console.log(co2EmissionReduction)
-  // ! 1f. impacted to here
   console.log(totalSaving)
 
   return {
@@ -156,4 +145,4 @@ export function calculateEnergy(
   }
 }
 
-calculateEnergy('MFO', 'Liter', 15000000)
+// calculateEnergy('COAL', 'Rupiah', 15000000)
