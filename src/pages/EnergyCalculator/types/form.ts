@@ -9,12 +9,21 @@ export type EnergyUsageSchema = {
   }[]
 }
 
-export type CompanyFormSchema = {
-  phone: string | undefined
-  email: string | undefined
+export type InstallationLocationSchema = {
+  buildingCondition: string | undefined
 }
 
-export type FormSchema = EnergyUsageSchema & CompanyFormSchema
+export type CompanyFormSchema = {
+  companyName: string | undefined
+  name: string | undefined
+  phone: string | undefined
+  email: string | undefined
+  businessType: string | undefined
+}
+
+export type FormSchema = EnergyUsageSchema &
+  InstallationLocationSchema &
+  CompanyFormSchema
 
 export type FormStep = {
   renderer: ReactElement

@@ -1,11 +1,22 @@
 import React from "react";
 
+type SingleSelectProps = {
+    multiple?: false;
+    value?: string;
+    onChange: (payload: string) => void;
+}
+
+type MultipleSelectProps = {
+    multiple: true;
+    value?: string[];
+    onChange: (payload: string[]) => void;
+}
+
 type ImageSelectProps = {
     data: Item[];
-    value?: string[];
     variant?: number;
-    onChange: (payload: string[]) => void;
-};
+
+} & (SingleSelectProps | MultipleSelectProps);
 
 type Item = {
     value: string;
@@ -14,18 +25,22 @@ type Item = {
 
 };
 export const ImageSelect: React.FC<ImageSelectProps> = React.forwardRef(
-    ({ data, value, variant = 1, onChange }, ref) => {
+    ({ data, value, variant = 1, multiple, onChange }, ref) => {
 
         function onItemChange(selected: string) {
-            if (value?.includes(selected)) {
-                onChange(value.filter((item) => item !== selected));
+            if (multiple) {
+                if (value?.includes(selected)) {
+                    onChange(value.filter((item) => item !== selected));
+                } else {
+                    onChange([...(value ?? []), selected]);
+                }
             } else {
-                onChange([...(value ?? []), selected]);
+                if (selected !== value) onChange(selected);
             }
         }
 
         function isOptionSelected(option: string): boolean {
-            return Boolean(value?.includes(option));
+            return multiple ? Boolean(value?.includes(option)) : Boolean(option === value);
         }
 
         return (
@@ -34,6 +49,8 @@ export const ImageSelect: React.FC<ImageSelectProps> = React.forwardRef(
             >
                 {data.map((item, i) => {
                     const variant2Class = variant === 2 ? "variant-2" : "";
+                    const isSelected = isOptionSelected(item.value)
+
                     return (
                         <div
                             key={item.value}
@@ -50,7 +67,9 @@ export const ImageSelect: React.FC<ImageSelectProps> = React.forwardRef(
                                 }
                                 <div className={["text-checkbox", variant2Class].join(" ")}>
                                     <p className={item.image ? "text-white" : "text-dark"}>{item.label}</p>
-                                    <input type="checkbox" checked={isOptionSelected(item.value)} readOnly />
+                                    {multiple ?
+                                        <input type="checkbox" checked={isSelected} readOnly />
+                                        : isSelected ? <input type="checkbox" checked readOnly /> : undefined}
                                 </div>
                             </figure>
                         </div>

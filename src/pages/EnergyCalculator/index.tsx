@@ -17,8 +17,12 @@ import { useMultistepForm } from './utils/useMultistepForm';
 const INITIAL_DATA: FormSchema = {
     fuels: [],
     energyUsages: [],
+    buildingCondition: undefined,
+    companyName: undefined,
+    name: undefined,
     phone: undefined,
-    email: undefined
+    email: undefined,
+    businessType: undefined,
 }
 
 const FORM_STEPS: FormStep[] = [

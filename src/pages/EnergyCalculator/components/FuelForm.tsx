@@ -27,6 +27,7 @@ const FuelForm = () => {
                     }}
                     render={({ field: { onChange, value } }) => (
                         <ImageSelect
+                            multiple
                             data={fuels.map((fuel) => ({
                                 value: fuel.title,
                                 label: fuel.title,
