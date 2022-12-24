@@ -1,5 +1,5 @@
 import React from 'react'
-import { Controller, useFormContext } from 'react-hook-form';
+import { Controller, useFieldArray, useFormContext } from 'react-hook-form';
 import { NumericFormat } from "react-number-format";
 
 import { FormSchema } from '../types/form';
@@ -11,16 +11,19 @@ const EnergyUsageForm = () => {
         register,
         watch,
         formState: { errors },
-        getValues
+        control
     } = useFormContext<FormSchema>();
-    const selectedFuels = getValues("fuels");
+    const { fields } = useFieldArray({
+        name: 'energyUsages',
+        control
+    });
 
     return (
         <FormWrapper title='Current usage' description='We need to know your current energy usage to figure out how much of natural gas would fullfill your business needs'>
             <div className='px-3 py-3 px-lg-7 py-lg-3'>
-                {selectedFuels.length &&
-                    selectedFuels.map((fuel, i) => {
-                        const findFuel = fuels.find((item) => item.title === fuel);
+                {fields.length &&
+                    fields.map((fuel, i) => {
+                        const findFuel = fuels.find((item) => item.title === fuel.name);
                         if (!findFuel) {
                             return <></>
                         }
@@ -35,7 +38,7 @@ const EnergyUsageForm = () => {
                                     <input
                                         type="hidden"
                                         {...register(`energyUsages.${i}.name`)}
-                                        defaultValue={fuel}
+                                        defaultValue={fuel.name}
                                     />
                                     <div className="input-group input-group-lg row no-gutters">
                                         <Controller

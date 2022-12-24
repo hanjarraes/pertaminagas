@@ -1,5 +1,5 @@
 import React from 'react'
-import { useFormContext, Controller } from 'react-hook-form';
+import { useFormContext, Controller, useFieldArray } from 'react-hook-form';
 import { FormSchema } from '../types/form';
 import { fuels } from '../utils/fuel';
 import { FormWrapper } from './FormWrapper'
@@ -7,8 +7,14 @@ import { ImageSelect } from './ImageSelect';
 
 const FuelForm = () => {
     const {
-        formState: { errors }
+        formState: { errors },
+        control
     } = useFormContext<FormSchema>();
+
+    const { replace, } = useFieldArray({
+        name: 'energyUsages',
+        control,
+    });
 
     return (
         <FormWrapper title='Current usage' description='We need to know your current energy usage to figure out how much of natural gas would fulfill your business needs'>
@@ -34,7 +40,14 @@ const FuelForm = () => {
                                 image: fuel.image
                             }))}
                             value={value}
-                            onChange={onChange}
+                            onChange={(payload) => {
+                                replace(payload.map((name) => ({
+                                    name,
+                                    unit: undefined,
+                                    usageValue: undefined,
+                                })))
+                                onChange(payload)
+                            }}
                         />
                     )}
                 />
