@@ -2,13 +2,13 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { useForm, FormProvider } from 'react-hook-form';
 
-import AddressForm from './components/AddressForm';
-import BuildingConditionForm from './components/BuildingConditionForm';
-import BussinessTypeForm from './components/BussinessTypeForm';
-import Button from './components/Button';
-import CompanyDetailsForm from './components/CompanyDetailsForm';
-import EnergyUsageForm from './components/EnergyUsageForm';
-import FuelForm from './components/FuelForm';
+import AddressForm from './components/form/AddressForm';
+import BuildingConditionForm from './components/form/BuildingConditionForm';
+import BussinessTypeForm from './components/form/BussinessTypeForm';
+import Button from './components/shared/Button';
+import CompanyDetailsForm from './components/form/CompanyDetailsForm';
+import EnergyUsageForm from './components/form/EnergyUsageForm';
+import FuelForm from './components/form/FuelForm';
 import './styles.scss';
 import { FormSchema, FormStep, ResultRouteState } from './types/form';
 import { useMultistepForm } from './utils/useMultistepForm';

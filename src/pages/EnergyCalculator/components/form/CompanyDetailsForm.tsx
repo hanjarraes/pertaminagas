@@ -1,6 +1,6 @@
 import React from 'react'
 import { useFormContext } from 'react-hook-form';
-import { FormSchema } from '../types/form';
+import { FormSchema } from '../../types/form';
 import { FormWrapper } from './FormWrapper'
 
 const CompanyDetailsForm = () => {

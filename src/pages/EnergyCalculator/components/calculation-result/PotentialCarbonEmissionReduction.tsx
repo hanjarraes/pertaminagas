@@ -1,6 +1,6 @@
 import { ArrowDown2, ArrowUp2, InfoCircle } from 'iconsax-react'
 import React, { useState } from 'react'
-import Button from '../Button'
+import Button from '../shared/Button'
 import PotentialCard from '../shared/PotentialCard'
 import BarChart from '../shared/BarChart'
 

@@ -1,9 +1,9 @@
 import React from 'react'
 import { useFormContext, Controller, useFieldArray } from 'react-hook-form';
-import { FormSchema } from '../types/form';
-import { fuels } from '../utils/fuel';
+import { FormSchema } from '../../types/form';
+import { fuels } from '../../utils/fuel';
 import { FormWrapper } from './FormWrapper'
-import { ImageSelect } from './ImageSelect';
+import { ImageSelect } from '../shared/ImageSelect';
 
 const FuelForm = () => {
     const {

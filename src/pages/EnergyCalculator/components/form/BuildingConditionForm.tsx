@@ -1,9 +1,9 @@
 import React from 'react'
 import { Controller, useFormContext } from 'react-hook-form';
-import { buildingConditions } from '../constants';
-import { FormSchema } from '../types/form';
+import { buildingConditions } from '../../constants';
+import { FormSchema } from '../../types/form';
 import { FormWrapper } from './FormWrapper'
-import { ImageSelect } from './ImageSelect';
+import { ImageSelect } from '../shared/ImageSelect';
 
 const BuildingConditionForm = () => {
     const {

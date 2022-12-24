@@ -2,8 +2,8 @@ import React from 'react'
 import { Controller, useFieldArray, useFormContext } from 'react-hook-form';
 import { NumericFormat } from "react-number-format";
 
-import { FormSchema } from '../types/form';
-import { fuels } from '../utils/fuel';
+import { FormSchema } from '../../types/form';
+import { fuels } from '../../utils/fuel';
 import { FormWrapper } from './FormWrapper'
 
 const EnergyUsageForm = () => {
