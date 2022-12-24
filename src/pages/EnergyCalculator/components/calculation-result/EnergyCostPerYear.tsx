@@ -1,29 +1,40 @@
 import React from 'react'
-import { getRupiahFormat } from '../../utils/currency';
+import { useLocation } from 'react-router-dom';
+import { ResultRouteState } from 'pages/EnergyCalculator/types/form';
+import { getEnergyUsageLabels } from 'pages/EnergyCalculator/utils/fuel';
+import { getNumberFormat } from '../../utils/currency';
 import BarChart from '../shared/BarChart';
 
 const EnergyCostPerYear = () => {
+    const { state } = useLocation()
+    const { formData, calculatorResult }: ResultRouteState = state ?? {}
+
+    const energyUsageLabels = getEnergyUsageLabels(formData.energyUsages)
+
     return (
         <div className='mb-5'>
             <h5 className='title-s text-center mb-4'>Energy cost per year (Rupiah)</h5>
             <BarChart
                 labels={[
-                    ["Your current expenditure", "with 100 tank of 50kg LPG,", "Rp 500.000.000 Rupiah of 50kg LPG"],
+                    ["Your current expenditure", ...energyUsageLabels],
                     ["Your expenditure", "with PGN natural gas"]
                 ]}
-                dataSource={[360000000, 150000000]}
+                dataSource={[
+                    calculatorResult.currentExpenditurePerYear,
+                    calculatorResult.naturalGasExpenditurePerYear
+                ]}
                 dataLabelFormatter={(value) => {
-                    const total = getRupiahFormat({
+                    const total = getNumberFormat({
                         value,
+                        style: 'currency'
                     })
 
                     return `${total}\n per year`;
                 }}
                 yAxisFormatter={(value) => {
-                    return getRupiahFormat({
+                    return getNumberFormat({
                         value: Number(value),
                         notation: 'compact',
-                        showCurrency: false
                     })
                 }}
             />

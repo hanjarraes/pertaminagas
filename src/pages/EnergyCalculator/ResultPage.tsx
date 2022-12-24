@@ -4,14 +4,14 @@ import ResultSection from './components/calculation-result/ResultSection'
 import { ResultRouteState } from './types/form'
 
 const ResultPage = () => {
-    const { state } = useLocation()
     const navigate = useNavigate();
-    const { formData, calculatorResults }: ResultRouteState = state ?? {}
+    const { state } = useLocation()
+    const { formData, calculatorResult }: ResultRouteState = state ?? {}
 
-    console.log({ formData, calculatorResults });
+    console.log({ formData, calculatorResult });
 
     useEffect(() => {
-        if (!formData || !calculatorResults) {
+        if (!formData || !calculatorResult) {
             navigate('/energy-calculator')
         }
 

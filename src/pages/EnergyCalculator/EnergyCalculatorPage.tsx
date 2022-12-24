@@ -12,7 +12,7 @@ import FuelForm from './components/form/FuelForm';
 import './styles.scss';
 import { FormSchema, FormStep, ResultRouteState } from './types/form';
 import { useMultistepForm } from './utils/useMultistepForm';
-import { calculateEnergies, CalculateEnergyParams, CalculateEnergyResult } from './utils/fuel';
+import { calculateEnergies, CalculateEnergyParams, CalculateEnergyResultUI } from './utils/fuel';
 
 
 const INITIAL_DATA: FormSchema = {
@@ -96,14 +96,14 @@ const EnergyCalculatorPage = () => {
                     }
                 })
 
-                const calculatorResults: CalculateEnergyResult[] = calculateEnergies(calculatorParams);
+                const calculatorResult: CalculateEnergyResultUI = calculateEnergies(calculatorParams);
 
-                console.log('FORM RESULT', { data, calculatorResults });
+                console.log('FORM RESULT', { data, calculatorResult });
                 setIsCalculating(false)
 
                 const resultRouteState: ResultRouteState = {
                     formData: data,
-                    calculatorResults,
+                    calculatorResult,
                 }
                 navigate('/energy-calculator/result', { state: resultRouteState })
             }, 1000);

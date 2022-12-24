@@ -1,14 +1,16 @@
 import { ReactElement } from 'react'
-import { CalculateEnergyResult } from '../utils/fuel'
+import { CalculateEnergyResultUI } from '../utils/fuel'
+
+export type EnergyUsage = {
+  name: string | undefined
+  title: string | undefined
+  usageValue: number | undefined
+  unit: string | undefined
+}
 
 export type EnergyUsageSchema = {
   fuels: string[]
-  energyUsages: {
-    name: string | undefined
-    title: string | undefined
-    usageValue: number | undefined
-    unit: string | undefined
-  }[]
+  energyUsages: EnergyUsage[]
 }
 
 export type InstallationLocationSchema = {
@@ -34,5 +36,5 @@ export type FormStep = {
 
 export type ResultRouteState = {
   formData: FormSchema
-  calculatorResults: CalculateEnergyResult[]
+  calculatorResult: CalculateEnergyResultUI
 }

@@ -1,11 +1,30 @@
-import { ArrowDown2, ArrowUp2, InfoCircle } from 'iconsax-react'
 import React, { useState } from 'react'
+import { useLocation } from 'react-router-dom'
+import { ArrowDown2, ArrowUp2, InfoCircle } from 'iconsax-react'
 import Button from '../shared/Button'
 import PotentialCard from '../shared/PotentialCard'
 import BarChart from '../shared/BarChart'
+import { ResultRouteState } from 'pages/EnergyCalculator/types/form'
+import { getNumberFormat } from 'pages/EnergyCalculator/utils/currency'
+import { getEnergyUsageLabels } from 'pages/EnergyCalculator/utils/fuel'
 
 const PotentialCarbonEmissionReduction = () => {
   const [isVisible, setIsVisible] = useState<boolean>(false)
+  const { state } = useLocation()
+  const { formData, calculatorResult }: ResultRouteState = state ?? {}
+
+  const energyUsageLabels = getEnergyUsageLabels(formData.energyUsages)
+
+  const formattedCO2EmissionReductionPerYear = getNumberFormat({
+    value: calculatorResult.co2EmissionReductionPerYear,
+    decimalScale: 2
+  })
+
+  const formattedCO2EmissionReductionPercentage = getNumberFormat({
+    value: calculatorResult.co2EmissionReductionPercentage,
+    style: 'percent',
+    decimalScale: 1
+  })
 
   return (
     <div className='mb-5'>
@@ -14,12 +33,19 @@ const PotentialCarbonEmissionReduction = () => {
           <h5 className='title-s text-center mb-4'>Carbon footprint reduction (in metric tonnes)</h5>
           <BarChart
             labels={[
-              ["Your current carbon footprint", "with 100 tank of 50kg LPG,", "Rp 500.000.000 Rupiah of 50kg LPG"],
+              ["Your current carbon footprint", ...energyUsageLabels],
               ["Your carbon footprint", "with PGN natural gas"]
             ]}
-            dataSource={[4.57, 2.2]}
+            dataSource={[
+              calculatorResult.fuelEmissionPerYear,
+              calculatorResult.naturalGasEmissionPerYear
+            ]}
             dataLabelFormatter={(value) => {
-              return `${value} t-CO2`;
+              const formattedValue = getNumberFormat({
+                value,
+                decimalScale: 2
+              })
+              return `${formattedValue} t-CO2`;
             }}
             yAxisFormatter={(value) => {
               return value.toString()
@@ -34,9 +60,9 @@ const PotentialCarbonEmissionReduction = () => {
           </div>
           <p className="body-s text-center mb-4">With PGN Natural Gas, your company is one step ahead in creating a more sustainable world</p>
           <PotentialCard
-            leftValue='51,8%'
+            leftValue={formattedCO2EmissionReductionPercentage}
             leftDescription='From current emissions'
-            rightValue='2.37 t-CO2'
+            rightValue={`${formattedCO2EmissionReductionPerYear} t-CO2`}
             rightDescription='Carbon footprint'
           />
         </div>

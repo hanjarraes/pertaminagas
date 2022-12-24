@@ -1,17 +1,19 @@
-export function getRupiahFormat({
+export function getNumberFormat({
   value,
-  showCurrency = true,
+  style,
   notation = 'standard',
+  decimalScale = 0,
 }: {
   value: number
   notation?: 'compact' | 'standard'
-  showCurrency?: boolean
+  style?: 'currency' | 'percent'
+  decimalScale?: number
 }): string {
   const formatter = new Intl.NumberFormat('id-ID', {
-    style: showCurrency ? 'currency' : undefined,
+    style,
     notation,
     minimumFractionDigits: 0,
-    maximumFractionDigits: 0,
+    maximumFractionDigits: decimalScale,
     currency: 'IDR',
 
     // These options are needed to round to whole numbers if that's what you want.
