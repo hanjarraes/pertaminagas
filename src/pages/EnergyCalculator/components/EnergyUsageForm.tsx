@@ -23,7 +23,7 @@ const EnergyUsageForm = () => {
             <div className='px-3 py-3 px-lg-7 py-lg-3'>
                 {fields.length &&
                     fields.map((fuel, i) => {
-                        const findFuel = fuels.find((item) => item.title === fuel.name);
+                        const findFuel = fuels.find((item) => item.name === fuel.name);
                         if (!findFuel) {
                             return <></>
                         }
@@ -38,7 +38,12 @@ const EnergyUsageForm = () => {
                                     <input
                                         type="hidden"
                                         {...register(`energyUsages.${i}.name`)}
-                                        defaultValue={fuel.name}
+                                        defaultValue={findFuel.name}
+                                    />
+                                    <input
+                                        type="hidden"
+                                        {...register(`energyUsages.${i}.title`)}
+                                        defaultValue={findFuel.title}
                                     />
                                     <div className="input-group input-group-lg row no-gutters">
                                         <Controller

@@ -1,7 +1,7 @@
 import React, { PropsWithChildren } from 'react'
 
 type ButtonProps = PropsWithChildren & {
-    type?: 'primary' | 'secondary'
+    type?: 'primary' | 'secondary' | 'text'
     disabled?: boolean
     loading?: boolean
     className?: string
@@ -18,6 +18,7 @@ const Button: React.FC<ButtonProps> = ({
 }) => {
     const classes = ["pgn-button", className]
     if (type === "secondary") classes.push("secondary")
+    if (type === "text") classes.push("text")
     if (disabled || loading) classes.push("disabled")
 
     return (

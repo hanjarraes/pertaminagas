@@ -54,10 +54,10 @@ export const ImageSelect: React.FC<ImageSelectProps> = React.forwardRef(
                     return (
                         <div
                             key={item.value}
-                            className="col-6 col-lg-4"
+                            className="col-6 col-lg-4 mb-3"
                             onClick={() => onItemChange(item.value)}
                         >
-                            <figure className={["figure image-select-item", isOptionSelected(item.value) ? "selected" : ""].join(" ")}>
+                            <div className={["image-select-item", isOptionSelected(item.value) ? "selected" : ""].join(" ")}>
                                 {item.image ?
                                     <>
                                         <img src={item.image} alt={item.label} />
@@ -71,7 +71,7 @@ export const ImageSelect: React.FC<ImageSelectProps> = React.forwardRef(
                                         <input type="checkbox" checked={isSelected} readOnly />
                                         : isSelected ? <input type="checkbox" checked readOnly /> : undefined}
                                 </div>
-                            </figure>
+                            </div>
                         </div>
                     );
                 })}

@@ -1,9 +1,11 @@
 import { ReactElement } from 'react'
+import { CalculateEnergyResult } from '../utils/fuel'
 
 export type EnergyUsageSchema = {
   fuels: string[]
   energyUsages: {
     name: string | undefined
+    title: string | undefined
     usageValue: number | undefined
     unit: string | undefined
   }[]
@@ -28,4 +30,9 @@ export type FormSchema = EnergyUsageSchema &
 export type FormStep = {
   renderer: ReactElement
   image?: any
+}
+
+export type ResultRouteState = {
+  formData: FormSchema
+  calculatorResults: CalculateEnergyResult[]
 }

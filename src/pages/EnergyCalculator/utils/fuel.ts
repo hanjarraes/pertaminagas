@@ -46,11 +46,33 @@ export const fuels = [
   },
 ]
 
-export function calculateEnergy(
-  name: string,
-  unit: string,
+export type CalculateEnergyParams = {
+  name: string
+  unit: string
   usageValue: number
-): any | undefined {
+}
+
+export type CalculateEnergyResult = {
+  volume: number
+  volumeM3: number
+  naturalGasCosts: number
+  mmbtu: number
+  bbtu: number
+  fuelEmission: number
+  fuelTax: number
+  naturalGasEmission: number
+  naturalGasTax: number
+  energyCostsSavingPerMonth: number
+  taxSaving: number
+  co2EmissionReduction: number
+  totalSaving: number
+}
+
+export function calculateEnergy({
+  name,
+  unit,
+  usageValue,
+}: CalculateEnergyParams): CalculateEnergyResult | undefined {
   const target = fuels.find((fuel) => fuel.name === name)
 
   if (!target) {
@@ -146,3 +168,24 @@ export function calculateEnergy(
 }
 
 // calculateEnergy('COAL', 'Rupiah', 15000000)
+
+export function calculateEnergies(
+  data: CalculateEnergyParams[]
+): CalculateEnergyResult[] {
+  const results: CalculateEnergyResult[] = []
+  data.forEach((item) => {
+    const result = calculateEnergy(item)
+    if (result) results.push(result)
+  })
+
+  return results
+}
+
+// const examples: CalculateEnergyParams[] = [
+//   {
+//     name: 'HSD',
+//     unit: 'Rupiah',
+//     usageValue: 15000000,
+//   },
+// ]
+// calculateEnergies(examples)

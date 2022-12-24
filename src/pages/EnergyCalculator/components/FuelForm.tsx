@@ -35,7 +35,7 @@ const FuelForm = () => {
                         <ImageSelect
                             multiple
                             data={fuels.map((fuel) => ({
-                                value: fuel.title,
+                                value: fuel.name,
                                 label: fuel.title,
                                 image: fuel.image
                             }))}
@@ -43,6 +43,7 @@ const FuelForm = () => {
                             onChange={(payload) => {
                                 replace(payload.map((name) => ({
                                     name,
+                                    title: undefined,
                                     unit: undefined,
                                     usageValue: undefined,
                                 })))
