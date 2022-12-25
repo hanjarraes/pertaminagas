@@ -70,7 +70,7 @@ const EnergyUsageForm = () => {
                                             )}
                                         />
                                         <select
-                                            className="custom-select col-3 col-lg-2"
+                                            className="custom-select col-4 col-lg-2"
                                             id="inputGroupSelect01"
                                             {...register(`energyUsages.${i}.unit`, {
                                                 required: {

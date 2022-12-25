@@ -13,6 +13,16 @@ export type EnergyUsageSchema = {
   energyUsages: EnergyUsage[]
 }
 
+export type LocationSchema = {
+  location:
+    | {
+        lat: number | undefined
+        lng: number | undefined
+        address: string | undefined
+      }
+    | undefined
+}
+
 export type InstallationLocationSchema = {
   buildingCondition: string | undefined
 }
@@ -26,6 +36,7 @@ export type CompanyFormSchema = {
 }
 
 export type FormSchema = EnergyUsageSchema &
+  LocationSchema &
   InstallationLocationSchema &
   CompanyFormSchema
 

@@ -18,6 +18,7 @@ import { calculateEnergies, CalculateEnergyParams, CalculateEnergyResultUI } fro
 const INITIAL_DATA: FormSchema = {
     fuels: [],
     energyUsages: [],
+    location: undefined,
     buildingCondition: undefined,
     companyName: undefined,
     name: undefined,
