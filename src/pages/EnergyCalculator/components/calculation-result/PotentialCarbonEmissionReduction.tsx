@@ -45,7 +45,7 @@ const PotentialCarbonEmissionReduction = () => {
                 value,
                 decimalScale: 2
               })
-              return `${formattedValue} t-CO2`;
+              return `${formattedValue} t-CO₂`;
             }}
             yAxisFormatter={(value) => {
               return value.toString()
@@ -62,7 +62,7 @@ const PotentialCarbonEmissionReduction = () => {
           <PotentialCard
             leftValue={formattedCO2EmissionReductionPercentage}
             leftDescription='From current emissions'
-            rightValue={`${formattedCO2EmissionReductionPerYear} t-CO2`}
+            rightValue={`${formattedCO2EmissionReductionPerYear} t-CO₂`}
             rightDescription='Carbon footprint'
           />
         </div>
