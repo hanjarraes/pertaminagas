@@ -23,7 +23,7 @@ const Hero = () => {
               <Button type='link' href="#" className='btn-default ml-0' >
                 <div className='title'>Daftar Sekarang</div>
               </Button>
-              <Button type='link' href="#" className='btn-light-industri' >
+              <Button type='link' href="#" className='btn-light'>
                 <div className='title'>Gas Untuk Industri  <ArrowRight2 /></div>
               </Button>
             </div>
