@@ -5,6 +5,10 @@ import Seccsion from 'component/container/Seccsion';
 import People from 'component/container/People';
 import ImageDesc from 'component/container/ImageDesc';
 import Prosess from 'component/container/Prosess';
+import Questions from 'component/container/Questions';
+import More from 'component/container/More';
+import Footer from 'component/container/Footer';
+
 
 const Landing = () => {
   return (
@@ -15,7 +19,10 @@ const Landing = () => {
       <People />
       <ImageDesc />
       <Prosess />
-    </div>
+      <Questions />
+      <More />
+      <Footer />
+    </div >
   )
 }
 

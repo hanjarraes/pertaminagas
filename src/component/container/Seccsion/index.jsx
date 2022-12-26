@@ -16,8 +16,8 @@ const Seccsion = () => {
         <div className='content-card-seccsion'>
           {itemSeccsion.map((data, idx) => {
             return (
-              <div className='card-seccsion mt-4' key={`data-seccsion-${data.title}-${idx}`} data-aos="fade-up">
-                <div>
+              <div className='card-seccsion mt-3 mt-md-4' key={`data-seccsion-${data.title}-${idx}`} data-aos="fade-up">
+                <div className='d-flex flex-column align-items-center'>
                   {data.logo}
                   <div className='title-card-seccsion'>
                     {data.title}
@@ -39,7 +39,7 @@ const Seccsion = () => {
         </div>
 
         <div className='syarat-dan-ketentuan'>*Syarat dan ketentuan berlaku</div>
-        <Button type='link' href="#" className='btn-default mt-3' >
+        <Button type='link' href="#" className='btn-default px-md-5 mt-3 btn-mobile' >
           <div className='title'>Daftar Sekarang</div>
         </Button>
       </div>

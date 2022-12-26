@@ -13,7 +13,7 @@ const Hero = () => {
               <img src={LogoGasKita} alt="LogoGas kita" />
             </div>
             <div className='title-card-hero'>
-              Rasakan Modernnya Aliran <span>Gas</span> Tanpa Putus
+              Rasakan Modernnya aliran <span>Gas</span> Tanpa Putus
             </div>
             <div className='content-card-hero'>
               GasKita mengalirkan gas metana berkualitas tinggi dengan jaringan pipa berstandar dunia, 24 jam tersedia untuk berbagai kebutuhanmu di rumah
@@ -23,7 +23,7 @@ const Hero = () => {
               <Button type='link' href="#" className='btn-default ml-0' >
                 <div className='title'>Daftar Sekarang</div>
               </Button>
-              <Button type='link' href="#" className='btn-light-industri' >
+              <Button type='link' href="#" className='btn-light'>
                 <div className='title'>Gas Untuk Industri  <ArrowRight2 /></div>
               </Button>
             </div>
