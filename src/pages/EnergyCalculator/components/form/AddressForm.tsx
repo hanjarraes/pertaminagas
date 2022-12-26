@@ -22,7 +22,7 @@ const AddressForm = () => {
                 rules={{
                     validate: {
                         isLocationValid: (value) => {
-                            return Boolean(value?.lat && value.lng && value.address) || "Address is required"
+                            return Boolean(value?.lat && value.lng && value.address && value.city) || "Address is required"
                         }
                     }
                 }}

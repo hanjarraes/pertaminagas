@@ -19,6 +19,7 @@ export type LocationSchema = {
         lat: number | undefined
         lng: number | undefined
         address: string | undefined
+        city: string | undefined
       }
     | undefined
 }
