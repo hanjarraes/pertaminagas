@@ -149,7 +149,7 @@ const Maps: React.FC<MapsProps> = ({
                     </> : undefined}
                 </GoogleMap>
             </div>
-            <p className='body-s text-center mt-3'>{description}</p>
+            <p className='body-s text-center mt-3 px-3'>{description}</p>
         </>
     )
 }
