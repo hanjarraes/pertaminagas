@@ -16,7 +16,7 @@ const More = () => {
             <div className='more-title'>More Efficient, Less Emission for Businesses</div>
             <div className='more-desc'>Our high-quality natural gas propels efficiency in more than 2,000 businesses across the nation. Since then, our customers have produced fewer emissions than before</div>
           </div>
-          <Button type='link' href="#" className='btn-light' >
+          <Button type='link' href="#" className='btn-light btn-mobile' >
             <div className='title'>Calculate your efficiency  <ArrowRight2 /></div>
           </Button>
         </div>

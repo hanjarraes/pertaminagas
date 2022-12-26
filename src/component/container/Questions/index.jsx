@@ -1,8 +1,19 @@
-import React from 'react'
-import { itemQuest } from './service';
+import React, { useState } from 'react'
+import { itemQuest, itemQuestAll } from './service';
+import Modal from 'react-modal';
 import DropdownQuest from 'component/DropdownQuest';
 
+const customStyles = {
+  content: {
+    height: window.innerHeight,
+    width: window.innerWidth,
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+};
 const Questions = () => {
+  const [openModal, setOpenModal] = useState(false);
   return (
     <div className='questions'>
       <div className='row'>
@@ -18,7 +29,30 @@ const Questions = () => {
               </div>
             )
           })}
-          <div className='text-look-all-questions'>Lihat Semua Pertanyaan</div>
+          <Modal
+            isOpen={openModal}
+            style={customStyles}
+            className='ModalQuestions'
+          >
+            <div className='ModalContentQuest' style={{ height: window.innerHeight - 200 }}>
+              <div className='ModalHeader'>
+                <div className='d-flex justify-content-between'>
+                  <div className='ModalQuestTitle'>Frequently Asked Questions</div>
+                  <span onClick={() => setOpenModal(!openModal)}>X</span>
+                </div>
+              </div>
+              <div className='ModalBody' style={{ height: window.innerHeight - 310 }}>
+                {itemQuestAll.map((data, idx) => {
+                  return (
+                    <div key={`question-item-${idx}`}>
+                      <DropdownQuest itemQuest={itemQuest} title={data.title} desc={data.desc} />
+                    </div>
+                  )
+                })}
+              </div>
+            </div>
+          </Modal>
+          <div className='text-look-all-questions' onClick={() => setOpenModal(!openModal)}>Lihat Semua Pertanyaan</div>
         </div>
       </div>
     </div>

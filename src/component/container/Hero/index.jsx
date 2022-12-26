@@ -13,7 +13,7 @@ const Hero = () => {
               <img src={LogoGasKita} alt="LogoGas kita" />
             </div>
             <div className='title-card-hero'>
-              Rasakan Modernnya Aliran <span>Gas</span> Tanpa Putus
+              Rasakan Modernnya aliran <span>Gas</span> Tanpa Putus
             </div>
             <div className='content-card-hero'>
               GasKita mengalirkan gas metana berkualitas tinggi dengan jaringan pipa berstandar dunia, 24 jam tersedia untuk berbagai kebutuhanmu di rumah
