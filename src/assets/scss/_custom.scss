@@ -1,6 +1,28 @@
 body {
   font-family: "Helvetica", "Arial", sans-serif;
   background-color: #c2dbff3d;
+  overflow-x: hidden;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: $gray-500;
+  border-radius: 90px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
 
 .nav-header-custom {
@@ -10,6 +32,11 @@ body {
   margin-left: 10px;
   margin-right: 10px;
 }
+
+.ReactModal__Overlay--after-open {
+  background-color: rgba(105, 99, 99, 0.75) !important;
+}
+
 .Hero {
   background-color: #009dff11 !important;
   background-image: url("../img/PelangganRumahTangga.png") !important;
@@ -98,7 +125,7 @@ body {
   }
 }
 
-.btn-light-industri {
+.btn-light {
   color: $blue !important;
   background: $blueLight;
   padding: 12px 24px;
@@ -129,12 +156,14 @@ body {
   flex-direction: column;
   align-items: center;
   .title-seccsion {
+    text-align: center;
     font-size: 34px;
     font-weight: 700;
     line-height: 36px;
     margin-top: 80px;
   }
   .desc-seccsion {
+    text-align: center;
     font-size: 18px;
     font-weight: 500;
     width: 626px;
@@ -147,6 +176,7 @@ body {
     flex-wrap: wrap;
     justify-content: space-around;
     .card-seccsion {
+      text-align: center;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -170,6 +200,7 @@ body {
         margin-top: 10px;
       }
       .desc-card-seccsion {
+        text-align: center;
         font-size: 16px;
         font-weight: 500;
         color: $gray-600;
@@ -190,6 +221,7 @@ body {
   flex-direction: column;
   align-items: center;
   .title-people {
+    text-align: center;
     font-size: 34px;
     font-weight: 700;
     line-height: 36px;
@@ -297,12 +329,14 @@ body {
   flex-direction: column;
   align-items: center;
   .title-proses {
+    text-align: center;
     font-size: 34px;
     font-weight: 700;
     line-height: 36px;
     margin-top: 80px;
   }
   .desc-proses {
+    text-align: center;
     font-size: 18px;
     font-weight: 500;
     width: 668px;
@@ -331,6 +365,8 @@ body {
     font-size: 24px;
     font-weight: 700;
     margin-top: 10px;
+    width: 372px;
+    text-align: left;
   }
   .desc-content-proses {
     font-size: 16px;
@@ -338,5 +374,477 @@ body {
     color: #737373;
     text-align: left;
     margin-top: 20px;
+  }
+}
+
+.more-efficient {
+  .img-more {
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    background-image: url("../img/more.png");
+    background-size: cover;
+    min-height: 518px;
+  }
+  .desc-more-content {
+    background-color: $blue;
+    display: flex;
+    height: 517px;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 6rem;
+    .img-rectangle {
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+    .img-subtract {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+    }
+    .content-more {
+      text-align: left;
+      .more-title {
+        width: 464px;
+        font-size: 32px;
+        font-weight: 700;
+        color: #fff;
+      }
+      .more-desc {
+        width: 464px;
+        font-size: 16px;
+        font-weight: 500;
+        color: $gray-500;
+        margin-top: 20px;
+      }
+    }
+    .btn-light {
+      margin-left: 0;
+      margin-top: 3rem;
+    }
+  }
+}
+
+.ModalContentQuest {
+  width: 814px;
+  background: #fff;
+  border-radius: 10px;
+  .ModalHeader {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom: 1px solid $gray-600;
+    padding: 20px;
+    background-color: $gray-500;
+    .ModalQuestTitle {
+      font-weight: 700;
+      font-size: 24px;
+      color: $black2;
+    }
+    span {
+      font-size: 24px;
+      font-weight: 500;
+      cursor: pointer;
+    }
+  }
+  .ModalBody {
+    overflow-y: auto;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding: 20px;
+  }
+}
+
+.title-content-questions {
+  font-size: 18px;
+  font-weight: 500;
+  color: $black2;
+  margin-right: 40px;
+}
+.desc-content-questions {
+  font-size: 18px;
+  font-weight: 500;
+  color: $gray-600;
+  padding-top: 15px;
+}
+.desc-content-questions-close {
+  height: min-content;
+  display: none;
+  transition: display height 2s;
+}
+.arrow-icon-question {
+  color: $blue;
+}
+.questions {
+  padding: 100px;
+  min-height: 500px;
+  background-color: #fff;
+  .title-questions {
+    text-align: left;
+    font-size: 32px;
+    font-weight: 700;
+    color: $black2;
+    margin-bottom: 10px;
+  }
+  .desc-questions {
+    font-size: 18px;
+    font-weight: 500;
+    color: $gray-600;
+  }
+  .text-look-all-questions {
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 700;
+    margin-top: 3rem;
+    color: $blue;
+    display: flex;
+    justify-content: center;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.footer-content {
+  padding: 4% 10% 0 10%;
+  display: flex;
+  flex-direction: column;
+  .title-footer {
+    font-size: 14px;
+    font-weight: 700;
+    color: $black2;
+    cursor: pointer;
+  }
+  .content-footer {
+    margin-top: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    color: $gray-600;
+    cursor: pointer;
+  }
+  hr {
+    width: 100%;
+  }
+  .footer-icon-item {
+    display: flex;
+    justify-content: space-between;
+    .footer-copyright {
+      font-size: 14px;
+      font-weight: 500;
+      color: #737373;
+    }
+    .icon-social-footer {
+      display: flex;
+      padding: 9px;
+      border-radius: 100px;
+      background: $blueLight;
+      align-items: center;
+      justify-content: center;
+      &:hover {
+        color: $blueLight;
+        background-color: $blue;
+      }
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .seccsion {
+    .content-card-seccsion {
+      width: 787px;
+    }
+  }
+  .ImageDesc {
+    .content-image {
+      margin: 261px 0px 0px 12px;
+      .number-content {
+        font-size: 32px;
+      }
+      .decs-content {
+        flex-direction: column;
+        align-items: flex-start;
+        font-size: 16px;
+        .update-content {
+          margin-top: 10px;
+          margin-left: 0;
+        }
+      }
+    }
+  }
+
+  .more-efficient {
+    .desc-more-content {
+      background-color: $blue;
+      display: flex;
+      height: 517px;
+      padding: 4rem;
+      .img-rectangle {
+        width: 20rem;
+      }
+      .img-subtract {
+        width: 4rem;
+      }
+      .content-more {
+        .more-title {
+          width: 300px;
+          font-size: 24px;
+        }
+        .more-desc {
+          width: 279px;
+          font-size: 14px;
+          margin-top: 20px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  body {
+    overflow-x: auto;
+  }
+
+  .ModalContentQuest {
+    width: 456px;
+    background: #fff;
+    border-radius: 10px;
+  }
+  .btn-default {
+    padding: 6px 12px;
+    margin-left: 10px;
+    .title {
+      font-size: 12px;
+    }
+  }
+
+  .btn-light {
+    padding: 6px 12px;
+    margin-left: 10px;
+    .title {
+      font-size: 12px;
+      font-weight: 700;
+    }
+    svg {
+      width: 13px;
+      margin-left: 10px;
+      margin-top: -3px;
+    }
+  }
+  .btn-mobile {
+    padding: 16px 66px;
+    .title {
+      font-size: 14px;
+    }
+    svg {
+      width: 25px;
+    }
+  }
+
+  .Hero {
+    background-image: url("../img/PelangganRumahTanggaMobile.png") !important;
+    min-height: 550px;
+  }
+
+  .card-hero {
+    margin-top: 90px;
+    margin-left: 45px;
+    border-radius: 16px;
+    padding: 20px;
+
+    .title-card-hero {
+      font-size: 32px;
+      width: 300px;
+    }
+    .content-card-hero {
+      font-size: 12px;
+      width: 294px;
+    }
+  }
+
+  .modalNavCustomHero {
+    padding: 2rem;
+    .modalNavHeaderHero {
+      display: flex;
+      justify-content: space-between;
+      img {
+        width: 7rem;
+      }
+      span {
+        font-size: 24px;
+        font-weight: 500;
+        cursor: pointer;
+      }
+    }
+    .items-modal {
+      margin-top: 25px;
+      display: flex;
+      font-size: 24px;
+      font-weight: 700;
+      flex-direction: column;
+      a {
+        color: $black2 !important;
+        margin-top: 20px;
+      }
+    }
+    .btn-default {
+      padding: 12px 24px;
+      .title {
+        font-size: 16px;
+      }
+    }
+  }
+
+  .seccsion {
+    .title-seccsion {
+      width: 272px;
+      font-size: 24px;
+      margin-top: 40px;
+    }
+    .desc-seccsion {
+      width: 379px;
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+    .content-card-seccsion {
+      width: 444px;
+      .card-seccsion {
+        width: 203px;
+        height: auto;
+        padding-left: 5px;
+        padding-right: 5px;
+        .title-card-seccsion {
+          font-size: 16px;
+        }
+        .desc-card-seccsion {
+          font-size: 12px;
+        }
+      }
+    }
+  }
+
+  .people {
+    .title-people {
+      width: 272px;
+      font-size: 24px;
+      margin-top: 40px;
+    }
+    .card-people {
+      background: #fff;
+      width: 427px;
+      height: auto;
+      padding: 32px;
+      border-radius: 16px;
+      margin-top: 60px;
+      border: 1px solid #e5e5e5;
+
+      img {
+        border-radius: 99px;
+        width: 96px;
+        height: 96px;
+        margin-right: 15px;
+      }
+      .name-people {
+        font-size: 18px;
+      }
+      .location-people {
+        font-size: 14px;
+      }
+      .desc-people {
+        font-size: 16px;
+        margin-top: 10px;
+      }
+    }
+  }
+  .ImageDesc {
+    .content-image {
+      margin: 261px 0px 0px 12px;
+      .number-content {
+        font-size: 32px;
+      }
+      .decs-content {
+        flex-direction: column;
+        align-items: flex-start;
+        font-size: 16px;
+        .update-content {
+          margin-top: 10px;
+          margin-left: 0;
+        }
+      }
+    }
+  }
+
+  .proses {
+    .title-proses {
+      width: 272px;
+      font-size: 24px;
+      margin-top: 40px;
+    }
+    .desc-proses {
+      width: 379px;
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+    img {
+      margin-top: 25px;
+      width: 403px;
+      height: 252px;
+      border-radius: 16px;
+    }
+  }
+
+  .questions {
+    padding: 40px;
+    .title-questions {
+      width: 352px;
+      font-size: 24px;
+      margin-top: 40px;
+    }
+    .desc-questions {
+      width: 379px;
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+  }
+
+  .more-efficient {
+    .img-more {
+      min-height: 318px;
+    }
+    .desc-more-content {
+      display: flex;
+      height: 517px;
+      padding: 4rem;
+      .img-rectangle {
+        width: 20rem;
+      }
+      .img-subtract {
+        width: 4rem;
+      }
+      .content-more {
+        text-align: left;
+        .more-title {
+          width: 300px;
+          font-size: 24px;
+        }
+        .more-desc {
+          width: 279px;
+          font-size: 14px;
+          margin-top: 20px;
+        }
+      }
+      .btn-light {
+        margin-left: 0;
+        margin-top: 3rem;
+      }
+    }
+  }
+
+  .footer-content {
+    .footer-icon-item {
+      display: flex;
+      justify-content: space-between;
+      flex-direction: column;
+      align-items: center;
+    }
   }
 }
