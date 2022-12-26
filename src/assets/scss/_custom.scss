@@ -480,6 +480,7 @@ body {
   min-height: 500px;
   background-color: #fff;
   .title-questions {
+    text-align: left;
     font-size: 32px;
     font-weight: 700;
     color: $black2;
@@ -551,7 +552,48 @@ body {
   .seccsion {
     .content-card-seccsion {
       width: 787px;
-      .card-seccsion {
+    }
+  }
+  .ImageDesc {
+    .content-image {
+      margin: 261px 0px 0px 12px;
+      .number-content {
+        font-size: 32px;
+      }
+      .decs-content {
+        flex-direction: column;
+        align-items: flex-start;
+        font-size: 16px;
+        .update-content {
+          margin-top: 10px;
+          margin-left: 0;
+        }
+      }
+    }
+  }
+
+  .more-efficient {
+    .desc-more-content {
+      background-color: $blue;
+      display: flex;
+      height: 517px;
+      padding: 4rem;
+      .img-rectangle {
+        width: 20rem;
+      }
+      .img-subtract {
+        width: 4rem;
+      }
+      .content-more {
+        .more-title {
+          width: 300px;
+          font-size: 24px;
+        }
+        .more-desc {
+          width: 279px;
+          font-size: 14px;
+          margin-top: 20px;
+        }
       }
     }
   }
