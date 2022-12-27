@@ -27,10 +27,10 @@ const PotentialCarbonEmissionReduction = () => {
   })
 
   return (
-    <div className='mb-5'>
+    <div className='mb-4 mb-md-5'>
       {isVisible && <div>
-        <div className="mb-5">
-          <h5 className='title-s text-center mb-4'>Carbon footprint reduction (in metric tonnes)</h5>
+        <div className="mb-4 mb-md-5">
+          <h5 className='title-s text-center mb-3 mb-md-4'>Carbon footprint reduction (in metric tonnes)</h5>
           <BarChart
             labels={[
               ["Your current carbon footprint", ...energyUsageLabels],
@@ -52,13 +52,13 @@ const PotentialCarbonEmissionReduction = () => {
             }}
           />
         </div>
-        <div className='mb-5'>
+        <div className='mb-4 mb-md-5'>
           <div className='d-flex align-items-center justify-content-center'>
             <div className='invisible' />
             <h5 className='title-s text-center mx-auto'>Your potential carbon emission reduction</h5>
             <InfoCircle />
           </div>
-          <p className="body-s text-center mb-4">With PGN Natural Gas, your company is one step ahead in creating a more sustainable world</p>
+          <p className="body-s text-center mb-3 mb-md-4">With PGN Natural Gas, your company is one step ahead in creating a more sustainable world</p>
           <PotentialCard
             leftValue={formattedCO2EmissionReductionPercentage}
             leftDescription='From current emissions'

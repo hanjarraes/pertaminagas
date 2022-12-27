@@ -1,3 +1,4 @@
+import Footer from 'component/container/Footer'
 import React, { useEffect } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import ResultSection from './components/calculation-result/ResultSection'
@@ -23,6 +24,7 @@ const ResultPage = () => {
         <div className='result-container'>
             <div className="bg-image"></div>
             <ResultSection />
+            <Footer />
         </div>
     )
 }

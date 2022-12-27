@@ -7,7 +7,7 @@ import PotentialCarbonEmissionReduction from './PotentialCarbonEmissionReduction
 const ResultSection = () => {
     return (
         <div className='container result-section'>
-            <div className='mb-4'>
+            <div className='mb-3 mb-md-4'>
                 <h1 className='title-l text-white'>Your efficiency result</h1>
                 <p className='body-m text-white'>
                     Check out our analysis for you and learn how you <br /> can achieve higher efficiency with us
