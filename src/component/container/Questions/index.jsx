@@ -15,7 +15,7 @@ const customStyles = {
 const Questions = () => {
   const [openModal, setOpenModal] = useState(false);
   return (
-    <div className='questions'>
+    <div className='questions' id="FAQ">
       <div className='row'>
         <div className='col-12 col-md-6 text-justify' data-aos="fade-right">
           <div className='title-questions'>Frequently Asked Questions</div>

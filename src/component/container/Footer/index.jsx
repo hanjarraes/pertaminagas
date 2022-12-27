@@ -4,7 +4,18 @@ import LogoCall from '../../../assets/img/logoCallCenter.png'
 import { Global, Sms, Instagram, Youtube, Facebook } from 'iconsax-react';
 import Button from 'component/Button';
 
-const Footer = () => {
+
+const navDefault = [
+  { href: '#KelebihanGasBumi', title: 'Kelebihan Gas Bumi' },
+  { href: '#FAQ', title: 'FAQ' },
+  { href: '/business', title: 'Gas Untuk Industri' }
+]
+const navBusiness = [
+  { href: '#CalculateSavings', title: 'Calculate Savings' },
+  { href: '#NaturalGasBenefits', title: 'Natural Gas Benefits' },
+  { href: '#Residential', title: 'Residential' },
+]
+const Footer = ({ business = false }) => {
   return (
     <footer>
       <div className='footer-content'>
@@ -18,9 +29,15 @@ const Footer = () => {
             <div className='row mx-0 mx-md-2 text-left'>
               <div className='col-6 col-md-4 d-flex flex-column'>
                 <div className='title-footer'> SITEMAP</div>
-                <Button type='link' href="#" className='content-footer'>Kelebihan Gas Bumi</Button>
-                <Button type='link' href="#" className='content-footer'>FAQ</Button>
-                <Button type='link' href="#" className='content-footer'>Gas Untuk Industri</Button>
+                {business ?
+                  navBusiness.map((data, idx) => {
+                    return <Button type='link' href={data.href} className='content-footer' key={`footer-bisnis-${idx}`}>{data.title}</Button>
+                  })
+                  :
+                  navDefault.map((data, idx) => {
+                    return <Button type='link' href={data.href} className='content-footer' key={`footer-default-${idx}`}>{data.title}</Button>
+                  })
+                }
                 <Button type='link' href="#" className='content-footer'>Registrasi</Button>
               </div>
               <div className='col-6 col-md-4 d-flex flex-column'>
@@ -39,7 +56,7 @@ const Footer = () => {
         </div>
         <hr />
         <div className='footer-icon-item'>
-          <div className='footer-copyright'>© 2022 PT Perusahaan Gas Negara (Persero) .Tbk</div>
+          <div className='footer-copyright'>© 2023 PT Perusahaan Gas Negara (Persero) .Tbk</div>
           <div className='d-flex'>
             <Button type='link' href="#" className='icon-social-footer mr-2'><Instagram /></Button>
             <Button type='link' href="#" className='icon-social-footer mx-2'><Instagram variant="Bold" /></Button>
