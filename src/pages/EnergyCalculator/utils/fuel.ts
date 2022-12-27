@@ -182,8 +182,20 @@ export function calculateEnergy({
   // console.log(co2EmissionReduction)
   // console.log(totalSaving)
 
+  /* -------------------------------- UI RESULT ------------------------------- */
+
+  let currentExpenditurePerYear = 0
+  let totalSavingPercentage = 0
+
+  if (unit === 'Rupiah') {
+    currentExpenditurePerYear = usageValue * YEAR_IN_MONTHS
+    totalSavingPercentage = (totalSaving / (usageValue + fuelTax)) * PERCENTAGE
+  } else {
+    currentExpenditurePerYear = volume * YEAR_IN_MONTHS
+    totalSavingPercentage = (totalSaving / (volume + fuelTax)) * PERCENTAGE
+  }
+
   // UI 1
-  const currentExpenditurePerYear = usageValue * YEAR_IN_MONTHS
   //! If unit is not rupiah, seems doesnt make sense
   const naturalGasExpenditurePerYear = naturalGasCosts * YEAR_IN_MONTHS
 
@@ -193,13 +205,6 @@ export function calculateEnergy({
   // UI 2
   const fuelTaxPerYear = fuelTax * YEAR_IN_MONTHS
   const totalSavingPerYear = totalSaving * YEAR_IN_MONTHS
-  let totalSavingPercentage = 0
-
-  if (unit === 'Rupiah') {
-    totalSavingPercentage = (totalSaving / (usageValue + fuelTax)) * PERCENTAGE
-  } else {
-    totalSavingPercentage = (totalSaving / (volume + fuelTax)) * PERCENTAGE
-  }
 
   // console.log(fuelTaxPerYear)
   // console.log(totalSavingPercentage)
