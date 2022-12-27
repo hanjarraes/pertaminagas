@@ -19,7 +19,7 @@ const FuelForm = () => {
     return (
         <FormWrapper title='Current usage' description='We need to know your current energy usage to figure out how much of natural gas would fulfill your business needs'>
             <div className='px-3 py-0 px-lg-7 py-lg-3'>
-                <h5 className='title-s mb-3 md:mb-4'>Select your current fuel</h5>
+                <h5 className='title-s mb-3 mb-md-4'>Select your current fuel</h5>
                 <div className="mt-2">
                     <Controller
                         name="fuels"

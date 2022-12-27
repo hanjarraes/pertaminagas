@@ -12,8 +12,8 @@ const EnergyCostPerYear = () => {
     const energyUsageLabels = getEnergyUsageLabels(formData.energyUsages)
 
     return (
-        <div className='mb-4 md:mb-5'>
-            <h5 className='title-s text-center mb-3 md:mb-4'>Energy cost per year (Rupiah)</h5>
+        <div className='mb-4 mb-md-5'>
+            <h5 className='title-s text-center mb-3 mb-md-4'>Energy cost per year (Rupiah)</h5>
             <BarChart
                 labels={[
                     ["Your current expenditure", ...energyUsageLabels],

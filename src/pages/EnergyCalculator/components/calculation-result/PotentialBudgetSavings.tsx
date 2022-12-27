@@ -21,13 +21,13 @@ const PotentialBudgetSavings = () => {
     })
 
     return (
-        <div className='mb-4 md:mb-5'>
+        <div className='mb-4 mb-md-5'>
             <div className='d-flex align-items-center justify-content-center'>
                 <InfoCircle className='invisible' />
                 <h5 className='title-s text-center mx-auto'>Your potential budget savings</h5>
                 <InfoCircle />
             </div>
-            <p className='body-s text-center mb-3 md:mb-4'>Switching to PGN Natural Gas would save you:</p>
+            <p className='body-s text-center mb-3 mb-md-4'>Switching to PGN Natural Gas would save you:</p>
             <PotentialCard
                 leftValue={formattedTotalSavingPercentage}
                 leftDescription='From current expenses'

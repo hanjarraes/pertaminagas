@@ -30,11 +30,11 @@ const Meeting = () => {
         <div>
             <hr />
             <h5 className='title-s text-center mt-4 mt-lg-5 mb-2'>Interested? Let’s have a meeting with us!</h5>
-            <p className='body-s text-center mb-3 md:mb-4'>
+            <p className='body-s text-center mb-3 mb-md-4'>
                 Our gas expert will help you find the best technical and operational solutions for your business. <br />
                 You will get your efficiency exactly the way you need.
             </p>
-            <div className="row mb-3 md:mb-5">
+            <div className="row mb-3 mb-md-5">
                 {meetingObtains.map((item, i) => (
                     <div key={i} className="col-6 col-lg mb-3 mb-lg-0">
                         <div className='meeting-card'>

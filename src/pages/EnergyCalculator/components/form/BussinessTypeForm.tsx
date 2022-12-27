@@ -13,7 +13,7 @@ const BussinessTypeForm = () => {
     return (
         <FormWrapper title='Company profile' description='By telling us your contact, you will be able to receive the efficiency calculation result directly. You might also get some interesting offers from us.'>
             <div className='px-3 py-0 px-lg-7 py-lg-3'>
-                <h5 className='title-s mb-3 md:mb-4'>Select your type of business</h5>
+                <h5 className='title-s mb-3 mb-md-4'>Select your type of business</h5>
                 <div className="mt-2">
                     <Controller
                         name="businessType"
