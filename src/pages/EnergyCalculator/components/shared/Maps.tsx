@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import { useJsApiLoader, GoogleMap, MarkerF, InfoWindowF, Autocomplete } from '@react-google-maps/api';
-import { Gps } from 'iconsax-react';
+import { useJsApiLoader, GoogleMap, MarkerF, InfoWindowF } from '@react-google-maps/api';
+import { CloseCircle, Gps, Location } from 'iconsax-react';
+import { Combobox, ComboboxInput, ComboboxPopover, ComboboxList, ComboboxOption, ComboboxOptionText } from '@reach/combobox';
+import "@reach/combobox/styles.css";
+
 import { useWatchLocation } from 'pages/EnergyCalculator/utils/useLocation';
+import usePlacesAutocomplete, { getGeocode, getLatLng } from 'use-places-autocomplete';
 
 const ZOOM = 15
 
@@ -29,7 +33,7 @@ type MapsProps = {
     },
     mapContainerStyle?: React.CSSProperties;
     description?: string
-    onSelectLocation?: (payload: { lat?: number, lng?: number, address?: string }) => void
+    onSelectLocation?: (payload: { lat?: number, lng?: number, address?: string, city?: string }) => void
 }
 
 const Maps: React.FC<MapsProps> = ({
@@ -41,13 +45,12 @@ const Maps: React.FC<MapsProps> = ({
     const currentLocation = useWatchLocation()
     const [useInitialCenter, setUseInitialCenter] = useState<boolean>(true)
     const [map, setMap] = useState<google.maps.Map>()
-    const [autoComplete, setAutoComplete] = useState<google.maps.places.Autocomplete>()
     const [selectedLatLng, setSelectedLatLng] = useState<google.maps.LatLngLiteral>(INITIAL_LAT_LNG)
     const [selectedAddress, setSelectedAddress] = useState<string>()
 
     const { isLoaded, loadError } = useJsApiLoader({
         googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY ?? '',
-        libraries
+        libraries,
     })
 
     useEffect(() => {
@@ -72,10 +75,6 @@ const Maps: React.FC<MapsProps> = ({
         setMap(undefined)
     }, [])
 
-    const onLoadAutoComplete = React.useCallback((autoComplete: google.maps.places.Autocomplete) => {
-        setAutoComplete(autoComplete)
-    }, [])
-
     const onCenteredMapToCurrentLocation = () => {
         if (!currentLocation?.error) {
             map?.panTo({
@@ -85,52 +84,32 @@ const Maps: React.FC<MapsProps> = ({
         }
     }
 
-    const onAutoCompletePlaceChanged = () => {
-        if (autoComplete) {
-            const getPlace = autoComplete.getPlace()
-            const lat = getPlace.geometry?.location?.lat()
-            const lng = getPlace.geometry?.location?.lng()
-            const address = getPlace.formatted_address;
+    const onAutoCompletePlaceChanged = ({ lat, lng, address, city }: OnSelectLocationPayload) => {
+        map?.panTo({ lat, lng })
+        setSelectedLatLng({ lat, lng })
+        setSelectedAddress(address)
 
-            if (lat && lng && address) {
-                map?.panTo({ lat, lng })
-                setSelectedLatLng({ lat, lng })
-                setSelectedAddress(address)
-            }
-
-            if (onSelectLocation) {
-                onSelectLocation({ address, lat, lng })
-            }
-        } else {
-            console.log('Autocomplete is not loaded yet!')
+        if (onSelectLocation) {
+            onSelectLocation({ address, lat, lng, city })
         }
     }
 
     if (currentLocation?.error) {
+        console.error(currentLocation.error);
         return <p className='px-3 py-3 px-lg-7 py-lg-3 text-danger'>{currentLocation.error}</p>;
     }
 
     if (loadError) {
-        return <p className='px-3 py-3 px-lg-7 py-lg-3 text-danger'>Error load google maps. Try again later</p>
+        console.error(loadError.message);
+        return <p className='px-3 py-3 px-lg-7 py-lg-3 text-danger'>Error load map. Try again later</p>
     }
 
     if (!isLoaded) {
-        return <p className='px-3 py-3 px-lg-7 py-lg-3'>Loading...</p>
+        return <p className='px-3 py-3 px-lg-7 py-lg-3'>Loading map...</p>
     }
 
     const renderSearchBar = () => {
-        return <div className='search-bar'>
-            <Autocomplete
-                onLoad={onLoadAutoComplete}
-                onPlaceChanged={onAutoCompletePlaceChanged}
-            >
-                <input
-                    type="text"
-                    className="form-control form-control-lg"
-                    placeholder='Search your location'
-                />
-            </Autocomplete>
-        </div>
+        return <PlaceAutocomplete onSelectLocation={onAutoCompletePlaceChanged} />;
     }
 
     const renderCenterMapButton = () => {
@@ -170,9 +149,109 @@ const Maps: React.FC<MapsProps> = ({
                     </> : undefined}
                 </GoogleMap>
             </div>
-            <p className='body-s text-center mt-3'>{description}</p>
+            <p className='body-s text-center mt-3 px-3'>{description}</p>
         </>
     )
+}
+
+type OnSelectLocationPayload = { lat: number; lng: number; address: string, city: string };
+type PlaceAutocompleteProps = {
+    onSelectLocation?: (payload: OnSelectLocationPayload) => void
+}
+const PlaceAutocomplete: React.FC<PlaceAutocompleteProps> = ({ onSelectLocation }) => {
+    const {
+        value,
+        setValue,
+        suggestions: { status, data },
+        clearSuggestions,
+    } = usePlacesAutocomplete({
+        debounce: 300
+    })
+
+    const onClearValue = () => {
+        setValue("")
+        clearSuggestions()
+    }
+
+    const onSelect = async (value: string) => {
+        setValue(value, false);
+        clearSuggestions()
+
+        const [result] = await getGeocode({ address: value })
+        const { address_components } = result;
+        const { lat, lng } = await getLatLng(result)
+        const { long_name } = address_components.find(
+            (item) => item.types.includes("administrative_area_level_2")
+        ) ?? {}
+
+        if (onSelectLocation) {
+            onSelectLocation({
+                lat,
+                lng,
+                address: value,
+                city: long_name ?? ''
+            })
+        }
+    }
+
+    const renderSuggestions = () => {
+        let message: string;
+        switch (status) {
+            case "OK":
+                return <ComboboxList className='list-box'>
+                    {data.map((item) => (
+                        <ComboboxOption
+                            key={item.place_id}
+                            className='list-box-item'
+                            value={item.description}
+                        >
+                            <div className='location-icon ml-2 mr-2'>
+                                <Location />
+                            </div>
+                            <div className='location-description'>
+                                <ComboboxOptionText />
+                            </div>
+                        </ComboboxOption>))}
+                </ComboboxList>
+            case "NOT_FOUND":
+            case "ZERO_RESULTS":
+                message = 'Location not found'
+                break;
+            default:
+                message = ''
+                break;
+        }
+
+        if (!message) {
+            return <></>
+        }
+
+        return (
+            <ComboboxList className='list-box'>
+                <div className='list-box-item ml-2'>
+                    <p className='mb-0'>{message}</p>
+                </div>
+            </ComboboxList>
+        )
+    }
+
+    return <div className='position-relative'>
+        <Combobox className='search-bar-container' onSelect={onSelect}>
+            <div className={['search-bar', value?.length ? 'active' : ''].join(" ")} >
+                <Location />
+                <ComboboxInput
+                    placeholder='Search your location'
+                    autoFocus
+                    value={value}
+                    onChange={(e) => setValue(e.target.value)}
+                />
+                {value?.length ? <CloseCircle onClick={onClearValue} /> : undefined}
+            </div>
+            <ComboboxPopover portal={false} className="popover">
+                {renderSuggestions()}
+            </ComboboxPopover>
+        </Combobox>
+    </div>
 }
 
 export default Maps

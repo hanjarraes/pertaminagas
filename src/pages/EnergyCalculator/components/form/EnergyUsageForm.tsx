@@ -20,7 +20,7 @@ const EnergyUsageForm = () => {
 
     return (
         <FormWrapper title='Current usage' description='We need to know your current energy usage to figure out how much of natural gas would fullfill your business needs'>
-            <div className='px-3 py-3 px-lg-7 py-lg-3'>
+            <div className='px-3 py-0 px-lg-7 py-lg-3'>
                 {fields.length &&
                     fields.map((fuel, i) => {
                         const findFuel = fuels.find((item) => item.name === fuel.name);
@@ -34,7 +34,7 @@ const EnergyUsageForm = () => {
                         return (
                             <div key={i} className="mb-5">
                                 <h5 className='title-s mb-3'>{`How much do you use ${findFuel?.title} monthly?`}</h5>
-                                <div className='w-100 w-lg-75'>
+                                <div className='mt-2 w-100 w-lg-75'>
                                     <input
                                         type="hidden"
                                         {...register(`energyUsages.${i}.name`)}

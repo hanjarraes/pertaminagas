@@ -12,9 +12,9 @@ const BuildingConditionForm = () => {
 
     return (
         <FormWrapper title='Installation location' description='Understanding your location will help us finding the most efficient gas delivery solutions to bring the gas to your business'>
-            <div className='px-3 py-3 px-lg-7 py-lg-3'>
+            <div className='px-3 py-0 px-lg-7 py-lg-3'>
                 <h5 className='title-s'>Building condition</h5>
-                <p className='body-s mb-4'>Choose one of the conditions according to the conditions of the installation location</p>
+                <p className='body-s mb-3 mb-md-4'>Choose one of the conditions according to the conditions of the installation location</p>
                 <Controller
                     name="buildingCondition"
                     defaultValue={[]}

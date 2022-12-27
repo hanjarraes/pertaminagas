@@ -25,6 +25,53 @@ body {
   background: #555;
 }
 
+.form-logo {
+  margin-bottom: 40px;
+}
+
+.title-l {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 56px;
+}
+
+.title-m {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 36px;
+  color: #171717;
+}
+
+.title-s {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 32px;
+  color: #171717;
+}
+
+.body-m {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  color: #737373;
+}
+
+.body-s {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  color: #737373;
+
+  &.darker {
+      color: #171717;
+  }
+}
+
 .nav-header-custom {
   font-size: 16px;
   font-weight: 700;
@@ -509,6 +556,7 @@ body {
   padding: 4% 10% 0 10%;
   display: flex;
   flex-direction: column;
+  background-color: #FFFFFF;
   .title-footer {
     font-size: 14px;
     font-weight: 700;
@@ -603,6 +651,36 @@ body {
   body {
     overflow-x: auto;
   }
+
+
+.form-logo {
+  margin-bottom: 16px;
+}
+
+.title-l {
+  font-size: 24px;
+  line-height: 32px;
+}
+
+.title-m {
+  font-size: 24px;
+  line-height: 32px;
+}
+
+.title-s {
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.body-m {
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.body-s {
+  font-size: 12px;
+  line-height: 16px;
+}
 
   .ModalContentQuest {
     width: 456px;

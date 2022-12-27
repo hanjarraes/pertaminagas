@@ -13,7 +13,7 @@ const PotentialCard: React.FC<PotentialCardProps> = ({
     rightDescription
 }) => {
     return (
-        <div className='potential-card d-flex flex-column flex-lg-row py-4'>
+        <div className='potential-card d-flex flex-column flex-lg-row py-3 md:py-4'>
             <div>
                 <h5 className='title-m text-success text-center'>{leftValue}</h5>
                 <p className='body-s text-center mb-0'>{leftDescription}</p>
