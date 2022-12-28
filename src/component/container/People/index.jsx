@@ -27,7 +27,30 @@ const People = () => {
           if ((activePage === items) || (activePage === items - 1) || (activePage === items + 1)) {
             return (
               <div
-                className='card-people mx-3'
+                className='card-people mx-3 d-none d-md-block'
+                key={`data-people-${data.name}-${idx}`}
+                style={{ opacity: activePage === idx + 1 ? 1 : 0.5 }}
+              >
+                <div className='d-flex align-items-center'>
+                  <img src={data.img} alt="Profile People" />
+                  <div className='d-flex flex-column align-items-start'>
+                    <div className='name-people'>{data.name}</div>
+                    <div className='location-people '>{data.langanan}</div>
+                    <div className='location-people '>{data.locotaion}</div>
+                  </div>
+                </div>
+                <div className='desc-people'>{data.desc} </div>
+              </div>
+            )
+          }
+          return ''
+        })}
+        {peopleData.map((data, idx) => {
+          const items = idx + 1
+          if ((activePage === items)) {
+            return (
+              <div
+                className='card-people mx-3 d-block d-md-none'
                 key={`data-people-${data.name}-${idx}`}
                 style={{ opacity: activePage === idx + 1 ? 1 : 0.5 }}
               >

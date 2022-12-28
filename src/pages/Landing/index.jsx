@@ -8,18 +8,24 @@ import Prosess from 'component/container/Prosess';
 import Questions from 'component/container/Questions';
 import More from 'component/container/More';
 import Footer from 'component/container/Footer';
+import { dataSeccsion } from './service';
 
 
 const Landing = () => {
+
   return (
     <div>
       <Header />
       <Hero />
-      <Seccsion />
+      <Seccsion dataSeccsion={dataSeccsion} id={'KelebihanGasBumi'} />
+
       <People />
+
       <ImageDesc />
+
       <Prosess />
       <Questions />
+
       <More />
       <Footer />
     </div >
