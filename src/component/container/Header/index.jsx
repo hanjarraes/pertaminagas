@@ -70,7 +70,7 @@ const Header = ({ business }) => {
                       )
                     })}
                     <li>
-                      <a href={`whatsapp:contact=085263132152@s.whatsapp.com&message="I'd like to chat with you`} className='btn-whatsApp' >
+                      <a href="https://api.whatsapp.com/send/?phone=6281511500645&text&type=phone_number&app_absent=0" className='btn-whatsApp' >
                         <Whatsapp /> <div className='title'>Hubungi Kami</div>
                       </a>
                     </li>
@@ -121,7 +121,7 @@ const Header = ({ business }) => {
               </div>
               :
               <div>
-                <a href="https://wa.me/6285263132152/?text=Hello" className='btn-whatsApp' >
+                <a href="https://api.whatsapp.com/send/?phone=6281511500645&text&type=phone_number&app_absent=0" className='btn-whatsApp' >
                   <Whatsapp /> <div className='title'>Hubungi Kami</div>
                 </a>
                 <Button type='link' href="#" className='btn-default mt-3' >
