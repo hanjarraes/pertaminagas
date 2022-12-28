@@ -202,6 +202,7 @@ body {
   .title {
     font-size: 16px;
     font-weight: 700;
+    width: max-content;
     display: flex;
     align-items: center;
   }
@@ -567,7 +568,7 @@ body {
 }
 
 .footer-content {
-  padding: 4% 10% 0 10%;
+  padding: 4% 10% 1% 10%;
   display: flex;
   flex-direction: column;
   background-color: #ffffff;
@@ -602,10 +603,6 @@ body {
       background: $blueLight;
       align-items: center;
       justify-content: center;
-      &:hover {
-        color: $blueLight;
-        background-color: $blue;
-      }
     }
   }
 }
@@ -845,7 +842,11 @@ body {
 
 @media (max-width: 500px) {
   body {
-    overflow-x: auto;
+    overflow-x: hidden;
+  }
+
+  .App {
+    overflow-x: hidden;
   }
 
   .form-logo {
@@ -904,7 +905,7 @@ body {
     }
   }
   .btn-mobile {
-    padding: 16px 66px;
+    padding: 16px 48px;
     .title {
       font-size: 14px;
     }
@@ -926,7 +927,7 @@ body {
 
   .card-hero {
     margin-top: 90px;
-    margin-left: 45px;
+    margin-left: 16px;
     border-radius: 16px;
     padding: 20px;
 
@@ -974,6 +975,8 @@ body {
   }
 
   .seccsion {
+    padding: 0 0;
+    padding-bottom: 2rem;
     .title-seccsion {
       width: 272px;
       font-size: 24px;
@@ -985,9 +988,9 @@ body {
       margin-bottom: 20px;
     }
     .content-card-seccsion {
-      width: 444px;
+      width: 383px;
       .card-seccsion {
-        width: 203px;
+        width: 180px;
         height: auto;
         padding-left: 5px;
         padding-right: 5px;
@@ -1002,6 +1005,7 @@ body {
   }
 
   .provide {
+    padding: 2rem 0;
     .title-provide {
       width: 272px;
       font-size: 24px;
@@ -1044,7 +1048,7 @@ body {
     }
     .card-people {
       background: #fff;
-      width: 427px;
+      width: 346px;
       height: auto;
       padding: 32px;
       border-radius: 16px;
@@ -1093,15 +1097,22 @@ body {
       font-size: 24px;
       margin-top: 40px;
     }
+    .title-content-proses {
+      font-size: 24px;
+      font-weight: 700;
+      margin-top: 10px;
+      width: 226px;
+      text-align: left;
+    }
     .desc-proses {
-      width: 379px;
+      width: 272px;
       font-size: 18px;
       margin-bottom: 20px;
     }
     img {
       margin-top: 25px;
-      width: 403px;
-      height: 252px;
+      width: 283px;
+      height: auto;
       border-radius: 16px;
     }
   }
@@ -1126,7 +1137,7 @@ body {
     }
     .desc-more-content {
       display: flex;
-      height: 517px;
+      height: 430px;
       padding: 4rem;
       .img-rectangle {
         width: 20rem;
@@ -1135,6 +1146,7 @@ body {
         width: 4rem;
       }
       .content-more {
+        margin-top: -28px;
         text-align: left;
         .more-title {
           width: 300px;
@@ -1159,6 +1171,63 @@ body {
       justify-content: space-between;
       flex-direction: column;
       align-items: center;
+    }
+  }
+
+  .calculatorContent {
+    padding: 2rem 0;
+    .calculatorContentItem {
+      .calculator-title {
+        width: 301px;
+        font-size: 24px;
+      }
+      .calculator-desc {
+        width: 280px;
+        font-size: 14px;
+      }
+    }
+  }
+
+  .natural-gas {
+    padding: 2rem 0;
+    background-color: #fff;
+    .title-natural-gas {
+      width: 300px;
+      font-size: 32px;
+    }
+    .desc-natural-gas {
+      width: 300px;
+      font-size: 18px;
+    }
+    .card-natural-gas {
+      background-color: #fff;
+      margin-top: 2rem;
+      border-radius: 20px;
+      box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+      display: flex;
+      flex-direction: column;
+      img {
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+      }
+      .card-content-np {
+        padding: 8px 16px;
+        .card-title-np {
+          font-weight: 700;
+          font-size: 24px;
+          width: 320px;
+          line-height: 32px;
+          color: $black2;
+        }
+        .card-desc-np {
+          margin-top: 5px;
+          width: 320px;
+          font-weight: 500;
+          font-size: 16px;
+          line-height: 24px;
+          color: $gray-600;
+        }
+      }
     }
   }
 }

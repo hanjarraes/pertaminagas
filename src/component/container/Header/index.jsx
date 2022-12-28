@@ -22,7 +22,7 @@ const navDefault = [
 const navBusiness = [
   { href: '#CalculateSavings', title: 'Calculate Savings' },
   { href: '#NaturalGasBenefits', title: 'Natural Gas Benefits' },
-  { href: '#Residential', title: 'Residential' },
+  { href: '/', title: 'Residential' },
 ]
 
 const Header = ({ business }) => {
@@ -70,9 +70,9 @@ const Header = ({ business }) => {
                       )
                     })}
                     <li>
-                      <Button type='link' href="#" className='btn-whatsApp' >
+                      <a href={`whatsapp:contact=085263132152@s.whatsapp.com&message="I'd like to chat with you`} className='btn-whatsApp' >
                         <Whatsapp /> <div className='title'>Hubungi Kami</div>
-                      </Button>
+                      </a>
                     </li>
                   </ul>
                 )
@@ -113,7 +113,7 @@ const Header = ({ business }) => {
             {business ?
               <div>
                 <Button type='link' href="#" className='btn-light btn-mobile' >
-                  <div className='title'>Login</div>
+                  <div className='title'>Login Sobat PGN</div>
                 </Button>
                 <Button type='link' href="#" className='btn-default mt-3' >
                   <div className='title'>Book a Meeting</div>
@@ -121,9 +121,9 @@ const Header = ({ business }) => {
               </div>
               :
               <div>
-                <Button type='link' href="#" className='btn-whatsApp' >
+                <a href="https://wa.me/6285263132152/?text=Hello" className='btn-whatsApp' >
                   <Whatsapp /> <div className='title'>Hubungi Kami</div>
-                </Button>
+                </a>
                 <Button type='link' href="#" className='btn-default mt-3' >
                   <div className='title'>Daftar Sekarang</div>
                 </Button>
