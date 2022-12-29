@@ -199,9 +199,9 @@ const EnergyCalculatorPage = () => {
                         borderRadius: "8px",
                         border: '1px solid #E64A40',
                         background: '#FFEEED',
-                        padding: '16px 24px',
                         color: '#171717',
                         fontWeight: 500,
+                        maxWidth: "max-content",
                     },
                 }} />
         </FormProvider>
