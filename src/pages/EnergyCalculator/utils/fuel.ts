@@ -236,7 +236,7 @@ export function calculateEnergy({
   // For Leads purpose
   const selectedFuels: SelectedFuel[] = []
   selectedFuels.push({
-    name,
+    name: target.title,
     unit,
     amount: unit === 'Rupiah' ? volume : usageValue,
     naturalGasVolume: volumeM3,
