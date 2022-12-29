@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { useForm, FormProvider } from 'react-hook-form';
+import toast, { Toaster } from "react-hot-toast";
 
 import AddressForm from './components/form/AddressForm';
 import BuildingConditionForm from './components/form/BuildingConditionForm';
@@ -16,6 +17,7 @@ import {
     calculateEnergies,
     CalculateEnergyParams,
     CalculateEnergyResultUI,
+    SelectedFuel
 } from './utils/fuel';
 
 
@@ -58,6 +60,14 @@ const FORM_STEPS: FormStep[] = [
     },
 ]
 
+type SendLeadPayload = {
+    submissionDate?: string;
+    companyName?: string
+    email?: string;
+    phoneNumber?: string;
+    selectedFuels?: SelectedFuel[]
+    city?: string
+}
 
 const EnergyCalculatorPage = () => {
     const [isCalculating, setIsCalculating] = useState<boolean>(false)
@@ -106,16 +116,43 @@ const EnergyCalculatorPage = () => {
 
         const calculatorResult: CalculateEnergyResultUI = calculateEnergies(calculatorParams);
 
-        setTimeout(() => {
-            const resultRouteState: ResultRouteState = {
-                formData: data,
-                calculatorResult,
+        // TODO: Hit real endpoint
+        fetch(
+            `${process.env.REACT_APP_API_URL}/post-lead`,
+            {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(constructPayload(data, calculatorResult)),
             }
+        )
+            .then(() => {
+                const resultRouteState: ResultRouteState = {
+                    formData: data,
+                    calculatorResult,
+                }
 
-            navigate('/energy-calculator/result', { state: resultRouteState })
+                navigate('/energy-calculator/result', { state: resultRouteState })
+            }).catch((error) => {
+                console.log('Failed to send lead data');
+                console.log(error);
+                toast('Please try again, something went wrong while directing you to the next page')
+            })
+            .finally(() => {
+                setIsCalculating(false)
+            })
+    }
 
-            setIsCalculating(false)
-        }, 500);
+    const constructPayload = (data: FormSchema, calculatorResult: CalculateEnergyResultUI): SendLeadPayload => {
+        return {
+            submissionDate: new Date().toDateString(),
+            companyName: data.companyName,
+            email: data.email,
+            phoneNumber: data.phone,
+            selectedFuels: calculatorResult.selectedFuels,
+            city: data.location?.city
+        }
     }
 
     return (
@@ -154,6 +191,19 @@ const EnergyCalculatorPage = () => {
                     </div>
                 </div>
             </form>
+            <Toaster
+                position='bottom-right'
+                toastOptions={{
+                    className: '',
+                    style: {
+                        borderRadius: "8px",
+                        border: '1px solid #E64A40',
+                        background: '#FFEEED',
+                        padding: '16px 24px',
+                        color: '#171717',
+                        fontWeight: 500,
+                    },
+                }} />
         </FormProvider>
     )
 }
