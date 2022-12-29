@@ -12,7 +12,12 @@ import FuelForm from './components/form/FuelForm';
 import './styles.scss';
 import { FormSchema, FormStep, ResultRouteState } from './types/form';
 import { useMultistepForm } from './utils/useMultistepForm';
-import { calculateEnergies, CalculateEnergyParams, CalculateEnergyResultUI } from './utils/fuel';
+import {
+    calculateEnergies,
+    CalculateEnergyParams,
+    CalculateEnergyResultUI,
+    SelectedFuel
+} from './utils/fuel';
 
 
 const INITIAL_DATA: FormSchema = {
@@ -54,6 +59,15 @@ const FORM_STEPS: FormStep[] = [
     },
 ]
 
+type SendLeadPayload = {
+    submissionDate?: string;
+    companyName?: string
+    email?: string;
+    phoneNumber?: string;
+    selectedFuels?: SelectedFuel[]
+    city?: string
+}
+
 const EnergyCalculatorPage = () => {
     const [isCalculating, setIsCalculating] = useState<boolean>(false)
     const {
@@ -80,34 +94,64 @@ const EnergyCalculatorPage = () => {
         return back()
     }
 
-    // TODO: Wire submit form to BE API
     function onSubmit(data: FormSchema) {
-        if (isLastStep) {
-            setIsCalculating(true)
-            setTimeout(() => {
-                const calculatorParams: CalculateEnergyParams[] = [];
+        if (!isLastStep) {
+            return;
+        }
 
-                data.energyUsages.forEach((item) => {
-                    if (item.name && item.unit && item.usageValue) {
-                        calculatorParams.push({
-                            name: item.name,
-                            unit: item.unit,
-                            usageValue: item.usageValue,
-                        })
-                    }
+        setIsCalculating(true)
+
+        const calculatorParams: CalculateEnergyParams[] = [];
+
+        data.energyUsages.forEach((item) => {
+            if (item.name && item.unit && item.usageValue) {
+                calculatorParams.push({
+                    name: item.name,
+                    unit: item.unit,
+                    usageValue: item.usageValue,
                 })
+            }
+        })
 
-                const calculatorResult: CalculateEnergyResultUI = calculateEnergies(calculatorParams);
+        const calculatorResult: CalculateEnergyResultUI = calculateEnergies(calculatorParams);
 
-                console.log('FORM RESULT', { data, calculatorResult });
-                setIsCalculating(false)
-
+        // TODO: Hit real endpoint
+        fetch(
+            `${process.env.REACT_APP_API_URL}/post-lead`,
+            {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(constructPayload(data, calculatorResult)),
+            }
+        )
+            .then(response => response.json())
+            .then(() => {
                 const resultRouteState: ResultRouteState = {
                     formData: data,
                     calculatorResult,
                 }
+
                 navigate('/energy-calculator/result', { state: resultRouteState })
-            }, 1000);
+            }).catch((error) => {
+                console.log('Failed to send lead data');
+                console.log(error);
+
+            })
+            .finally(() => {
+                setIsCalculating(false)
+            })
+    }
+
+    const constructPayload = (data: FormSchema, calculatorResult: CalculateEnergyResultUI): SendLeadPayload => {
+        return {
+            submissionDate: new Date().toDateString(),
+            companyName: data.companyName,
+            email: data.email,
+            phoneNumber: data.phone,
+            selectedFuels: calculatorResult.selectedFuels,
+            city: data.location?.city
         }
     }
 

@@ -69,7 +69,15 @@ export type CalculateEnergyParams = {
   usageValue: number
 }
 
+export type SelectedFuel = {
+  name: string
+  unit: string
+  amount: number
+  naturalGasVolume: number
+}
+
 export type CalculateEnergyResultUI = {
+  selectedFuels: SelectedFuel[]
   currentExpenditurePerYear: number
   naturalGasExpenditurePerYear: number
   fuelTaxPerYear: number
@@ -225,6 +233,15 @@ export function calculateEnergy({
   // console.log(co2EmissionReductionPercentage)
   // console.log(co2EmissionReductionPerYear)
 
+  // For Leads purpose
+  const selectedFuels: SelectedFuel[] = []
+  selectedFuels.push({
+    name,
+    unit,
+    amount: unit === 'Rupiah' ? volume : usageValue,
+    naturalGasVolume: volumeM3,
+  })
+
   return {
     volume,
     volumeM3,
@@ -239,6 +256,7 @@ export function calculateEnergy({
     taxSaving,
     co2EmissionReduction,
     totalSaving,
+    selectedFuels,
     currentExpenditurePerYear,
     naturalGasExpenditurePerYear,
     fuelTaxPerYear,
@@ -260,6 +278,8 @@ export function calculateEnergy({
 export function calculateEnergies(
   data: CalculateEnergyParams[]
 ): CalculateEnergyResultUI {
+  let selectedFuels: SelectedFuel[] = []
+
   let currentExpenditurePerYear = 0
   let naturalGasExpenditurePerYear = 0
 
@@ -276,6 +296,8 @@ export function calculateEnergies(
   data.forEach((item) => {
     const result = calculateEnergy(item)
     if (result) {
+      selectedFuels.push(...result.selectedFuels)
+
       currentExpenditurePerYear += result.currentExpenditurePerYear
       naturalGasExpenditurePerYear += result.naturalGasExpenditurePerYear
 
@@ -309,6 +331,7 @@ export function calculateEnergies(
   // console.log(co2EmissionReductionPerYear)
 
   return {
+    selectedFuels,
     currentExpenditurePerYear,
     naturalGasExpenditurePerYear,
     totalSavingPercentage,
