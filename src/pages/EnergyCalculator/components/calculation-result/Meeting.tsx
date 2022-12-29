@@ -1,6 +1,12 @@
 import { CalendarSearch, ClipboardText, ReceiptDisscount, TruckFast, WalletSearch } from 'iconsax-react'
-import React from 'react'
+import React, { useState } from 'react'
+import { useLocation } from 'react-router-dom'
+import toast, { Toaster } from "react-hot-toast";
+
 import { BOOK_MEETING_URL } from 'constants/meeting'
+import { FormSchema, ResultRouteState } from 'pages/EnergyCalculator/types/form'
+import { CalculateEnergyResultUI, SelectedFuel } from 'pages/EnergyCalculator/utils/fuel'
+import Button from '../shared/Button'
 
 
 export const meetingObtains = [
@@ -26,7 +32,58 @@ export const meetingObtains = [
     },
 ]
 
+type SendLeadPayload = {
+    submissionDate?: string;
+    companyName?: string
+    email?: string;
+    phoneNumber?: string;
+    selectedFuels?: SelectedFuel[]
+    city?: string
+}
+
 const Meeting = () => {
+    const [isLoading, setIsLoading] = useState<boolean>(false)
+    const { state } = useLocation()
+    const { formData, calculatorResult }: ResultRouteState = state ?? {}
+
+    const onPickASchedule = () => {
+        setIsLoading(true);
+
+        fetch(
+            `${process.env.REACT_APP_API_URL}/post-lead`,
+            {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(constructPayload(formData, calculatorResult)),
+            }
+        )
+            .then(response => response.json())
+            .then(() => {
+                window.location.href = BOOK_MEETING_URL
+            }).catch((error) => {
+                console.log('Failed to send lead data');
+                console.log(error);
+                toast('Please try again, something went wrong while directing you to the next page')
+            })
+            .finally(() => {
+                setIsLoading(false)
+            })
+    }
+
+
+    const constructPayload = (data: FormSchema, calculatorResult: CalculateEnergyResultUI): SendLeadPayload => {
+        return {
+            submissionDate: new Date().toDateString(),
+            companyName: data.companyName,
+            email: data.email,
+            phoneNumber: data.phone,
+            selectedFuels: calculatorResult.selectedFuels,
+            city: data.location?.city
+        }
+    }
+
     return (
         <div>
             <hr />
@@ -48,8 +105,26 @@ const Meeting = () => {
                 ))}
             </div>
             <div className="d-flex align-items-center justify-content-center">
-                <a href={BOOK_MEETING_URL} className='pgn-button'>Book an Online Meeting</a>
+                <Button
+                    disabled={isLoading}
+                    onClick={onPickASchedule}
+                >
+                    Pick a Schedule
+                </Button>
             </div>
+            <Toaster
+                position='bottom-right'
+                toastOptions={{
+                    className: '',
+                    style: {
+                        borderRadius: "8px",
+                        border: '1px solid #E64A40',
+                        background: '#FFEEED',
+                        padding: '16px 24px',
+                        color: '#171717',
+                        fontWeight: 500,
+                    },
+                }} />
         </div>
     )
 }

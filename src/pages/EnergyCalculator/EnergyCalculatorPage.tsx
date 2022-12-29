@@ -16,7 +16,6 @@ import {
     calculateEnergies,
     CalculateEnergyParams,
     CalculateEnergyResultUI,
-    SelectedFuel
 } from './utils/fuel';
 
 
@@ -59,14 +58,6 @@ const FORM_STEPS: FormStep[] = [
     },
 ]
 
-type SendLeadPayload = {
-    submissionDate?: string;
-    companyName?: string
-    email?: string;
-    phoneNumber?: string;
-    selectedFuels?: SelectedFuel[]
-    city?: string
-}
 
 const EnergyCalculatorPage = () => {
     const [isCalculating, setIsCalculating] = useState<boolean>(false)
@@ -115,44 +106,16 @@ const EnergyCalculatorPage = () => {
 
         const calculatorResult: CalculateEnergyResultUI = calculateEnergies(calculatorParams);
 
-        // TODO: Hit real endpoint
-        fetch(
-            `${process.env.REACT_APP_API_URL}/post-lead`,
-            {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(constructPayload(data, calculatorResult)),
+        setTimeout(() => {
+            const resultRouteState: ResultRouteState = {
+                formData: data,
+                calculatorResult,
             }
-        )
-            .then(response => response.json())
-            .then(() => {
-                const resultRouteState: ResultRouteState = {
-                    formData: data,
-                    calculatorResult,
-                }
 
-                navigate('/energy-calculator/result', { state: resultRouteState })
-            }).catch((error) => {
-                console.log('Failed to send lead data');
-                console.log(error);
+            navigate('/energy-calculator/result', { state: resultRouteState })
 
-            })
-            .finally(() => {
-                setIsCalculating(false)
-            })
-    }
-
-    const constructPayload = (data: FormSchema, calculatorResult: CalculateEnergyResultUI): SendLeadPayload => {
-        return {
-            submissionDate: new Date().toDateString(),
-            companyName: data.companyName,
-            email: data.email,
-            phoneNumber: data.phone,
-            selectedFuels: calculatorResult.selectedFuels,
-            city: data.location?.city
-        }
+            setIsCalculating(false)
+        }, 500);
     }
 
     return (
