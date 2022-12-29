@@ -47,7 +47,7 @@ const Meeting = () => {
                 ))}
             </div>
             <div className="d-flex align-items-center justify-content-center">
-                <a href="https://www.google.com/" className='pgn-button'>Book a Meeting</a>
+                <a href="https://www.google.com/" className='pgn-button'>Book an Online Meeting</a>
             </div>
         </div>
     )
