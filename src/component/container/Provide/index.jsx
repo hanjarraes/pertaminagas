@@ -1,6 +1,6 @@
 import React from 'react'
-import Button from 'component/Button';
 import { itemProvide } from './service';
+import { BOOK_MEETING_URL } from 'constants/meeting'
 
 const Provide = ({ id }) => {
   return (
@@ -32,9 +32,9 @@ const Provide = ({ id }) => {
         })}
       </div>
       <div className='text-content-provide '>We're always ready for your questions!</div>
-      <Button type='link' href="#" className='btn-default px-md-5 mt-3 btn-mobile' >
+      <a target="_blank" href={BOOK_MEETING_URL} className='btn-default px-md-5 mt-3 btn-mobile' rel="noreferrer" >
         <div className='title'>Book a Meeting</div>
-      </Button>
+      </a>
     </div>
   )
 }

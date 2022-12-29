@@ -1,7 +1,7 @@
 import React from 'react'
 import LogoGasKita from '../../../assets/img/Logo_Gaskita.png'
 import LogoGasLine from '../../../assets/img/LogoGasLine.png'
-import Button from '../../Button'
+import { BOOK_MEETING_URL } from 'constants/meeting'
 import { ArrowRight2 } from 'iconsax-react'
 
 const Hero = ({ business }) => {
@@ -33,21 +33,21 @@ const Hero = ({ business }) => {
             {
               business ?
                 <div className='d-flex pt-3'>
-                  <Button type='link' href="#" className='btn-default ml-0' >
+                  <a target="_blank" href={BOOK_MEETING_URL} className='btn-default ml-0' rel="noreferrer" >
                     <div className='title'>Book a Meeting</div>
-                  </Button>
-                  <Button type='link' href="#" className='btn-light'>
+                  </a>
+                  <a href='energy-calculator' className='btn-light'>
                     <div className='title'>Calculate Savings <ArrowRight2 /></div>
-                  </Button>
+                  </a>
                 </div>
                 :
                 <div className='d-flex pt-3'>
-                  <Button type='link' href="#" className='btn-default ml-0' >
+                  <a href={() => false} className='btn-default ml-0' >
                     <div className='title'>Daftar Sekarang</div>
-                  </Button>
-                  <Button type='link' href="#" className='btn-light'>
+                  </a>
+                  <a href='/business' className='btn-light'>
                     <div className='title'>Gas Untuk Industri  <ArrowRight2 /></div>
-                  </Button>
+                  </a>
                 </div>
             }
           </div>
