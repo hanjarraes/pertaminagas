@@ -1,5 +1,6 @@
 import { CalendarSearch, ClipboardText, ReceiptDisscount, TruckFast, WalletSearch } from 'iconsax-react'
 import React from 'react'
+import { BOOK_MEETING_URL } from 'constants/meeting'
 
 
 export const meetingObtains = [
@@ -47,7 +48,7 @@ const Meeting = () => {
                 ))}
             </div>
             <div className="d-flex align-items-center justify-content-center">
-                <a href="https://www.google.com/" className='pgn-button'>Book an Online Meeting</a>
+                <a href={BOOK_MEETING_URL} className='pgn-button'>Book an Online Meeting</a>
             </div>
         </div>
     )
