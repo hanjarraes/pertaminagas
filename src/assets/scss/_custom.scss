@@ -217,7 +217,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 5rem 0;
+  padding: 3rem 0;
   .title-seccsion {
     text-align: center;
     font-size: 34px;
@@ -287,7 +287,7 @@ body {
     font-size: 34px;
     font-weight: 700;
     line-height: 36px;
-    margin-top: 80px;
+    margin-top: 12px;
   }
   .card-people {
     background: #fff;
@@ -343,7 +343,7 @@ body {
 }
 
 .ImageDesc {
-  margin-top: 80px;
+  margin-top: 42px;
   .imageFirst {
     background-repeat: no-repeat;
     background-position: center bottom;
@@ -390,12 +390,12 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 3rem 0;
   .title-proses {
     text-align: center;
     font-size: 34px;
     font-weight: 700;
     line-height: 36px;
-    margin-top: 80px;
   }
   .desc-proses {
     text-align: center;
@@ -622,7 +622,7 @@ body {
     text-transform: uppercase;
     font-weight: 700;
     font-size: 16px;
-    margin: 3rem 0px;
+    margin-bottom: 3rem;
   }
 }
 
@@ -722,7 +722,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 5rem 0;
+  padding: 3rem 0;
   .title-provide {
     text-align: center;
     font-size: 34px;
@@ -741,7 +741,7 @@ body {
     display: flex;
     width: 1200px;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: center;
     margin: 3rem 0;
     .card-number-provide {
       font-weight: 700;
@@ -781,6 +781,20 @@ body {
     font-size: 18px;
     line-height: 24px;
     color: $blue;
+  }
+}
+
+@media (max-width: 1400px) {
+  .ImageDesc {
+    .content-image {
+      margin: 261px 0px 0px 12px;
+      .number-content {
+        font-size: 32px;
+      }
+      .decs-content {
+        font-size: 16px;
+      }
+    }
   }
 }
 
@@ -1005,11 +1019,9 @@ body {
   }
 
   .provide {
-    padding: 2rem 0;
     .title-provide {
       width: 272px;
       font-size: 24px;
-      margin-top: 40px;
     }
     .desc-provide {
       width: 379px;
@@ -1095,7 +1107,6 @@ body {
     .title-proses {
       width: 272px;
       font-size: 24px;
-      margin-top: 40px;
     }
     .title-content-proses {
       font-size: 24px;

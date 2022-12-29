@@ -34,7 +34,7 @@ const Hero = ({ business }) => {
               business ?
                 <div className='d-flex pt-3'>
                   <a target="_blank" href={BOOK_MEETING_URL} className='btn-default ml-0' rel="noreferrer" >
-                    <div className='title'>Book a Meeting</div>
+                    <div className='title'>Book an online meeting</div>
                   </a>
                   <a href='energy-calculator' className='btn-light'>
                     <div className='title'>Calculate Savings <ArrowRight2 /></div>

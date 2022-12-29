@@ -140,7 +140,7 @@ const Header = ({ business }) => {
                   <div className='title'>Login Sobat PGN</div>
                 </a>
                 <a target="_blank" href={BOOK_MEETING_URL} className='btn-default mt-3' rel="noreferrer">
-                  <div className='title'>Book a Meeting</div>
+                  <div className='title'>Book an online meeting</div>
                 </a>
               </div>
             ) : (

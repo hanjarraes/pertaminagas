@@ -34,11 +34,19 @@ const Footer = ({ business = false }) => {
                     return <Button type='link' href={data.href} className='content-footer' key={`footer-bisnis-${idx}`}>{data.title}</Button>
                   })
                   :
-                  navDefault.map((data, idx) => {
-                    return <Button type='link' href={data.href} className='content-footer' key={`footer-default-${idx}`}>{data.title}</Button>
-                  })
+                  (
+                    <>
+                      {
+                        navDefault.map((data, idx) => {
+                          return <Button type='link' href={data.href} className='content-footer' key={`footer-default-${idx}`}>{data.title}</Button>
+                        })
+                      }
+                      < Button type='link' href="#" className='content-footer'>Registrasi</Button>
+                    </>
+
+                  )
+
                 }
-                <Button type='link' href="#" className='content-footer'>Registrasi</Button>
               </div>
               {/* <div className='col-6 col-md-4 d-flex flex-column'>
                 <div className='title-footer'> TERMS OF CONDITIONS</div>
@@ -47,7 +55,7 @@ const Footer = ({ business = false }) => {
               </div> */}
               <div className='col-6 col-md-6 mt-md-0 d-flex flex-column'>
                 <div className='title-footer'>CONTACT</div>
-                <Button type='link' href="#" className='content-footer'><Global /> pgn.co.id</Button>
+                <a target="_blank" href="https://pgn.co.id/" className='content-footer' rel="noreferrer"><Global /> pgn.co.id</a>
                 <a href="mailto:pcc135@pertamina.com" className='content-footer'><Sms /> pcc135@pertamina.com</a>
               </div>
             </div>
@@ -67,7 +75,7 @@ const Footer = ({ business = false }) => {
           </div>
         </div>
       </div>
-    </footer>
+    </footer >
   )
 }
 

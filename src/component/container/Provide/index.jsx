@@ -33,7 +33,7 @@ const Provide = ({ id }) => {
       </div>
       <div className='text-content-provide '>We're always ready for your questions!</div>
       <a target="_blank" href={BOOK_MEETING_URL} className='btn-default px-md-5 mt-3 btn-mobile' rel="noreferrer" >
-        <div className='title'>Book a Meeting</div>
+        <div className='title'>Book an online meeting</div>
       </a>
     </div>
   )

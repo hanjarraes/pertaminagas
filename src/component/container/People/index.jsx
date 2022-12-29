@@ -11,7 +11,7 @@ const People = () => {
       </div>
       <div className='d-flex' data-aos="fade-up">
         {activePage === 1 ? (
-          <div className='card-people mx-3' style={{ opacity: 0 }}>
+          <div className='card-people mx-3  d-none d-md-block' style={{ opacity: 0 }}>
             <div className='d-flex align-items-center'>
               <div className='d-flex flex-column align-items-start'>
                 <div className='name-people'></div>
@@ -52,7 +52,6 @@ const People = () => {
               <div
                 className='card-people mx-3 d-block d-md-none'
                 key={`data-people-${data.name}-${idx}`}
-                style={{ opacity: activePage === idx + 1 ? 1 : 0.5 }}
               >
                 <div className='d-flex align-items-center'>
                   <img src={data.img} alt="Profile People" />
@@ -69,7 +68,7 @@ const People = () => {
           return ''
         })}
         {activePage === peopleData.length ? (
-          <div className='card-people mx-3' style={{ opacity: 0 }}>
+          <div className='card-people mx-3  d-none d-md-block' style={{ opacity: 0 }}>
             <div className='d-flex align-items-center'>
               <div className='d-flex flex-column align-items-start'>
                 <div className='name-people'></div>

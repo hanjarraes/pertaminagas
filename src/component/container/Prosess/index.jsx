@@ -32,7 +32,7 @@ const Prosess = () => {
           )
         })}
       </div>
-      <Button type='link' href="#" className='btn-default px-md-5 my-5 btn-mobile' >
+      <Button type='link' href="#" className='btn-default px-md-5 btn-mobile' >
         <div className='title'>Daftar Sekarang</div>
       </Button>
     </div>
