@@ -18,14 +18,10 @@ const Landing = () => {
       <Header />
       <Hero />
       <Seccsion dataSeccsion={dataSeccsion} id={'KelebihanGasBumi'} />
-
       <People />
-
       <ImageDesc />
-
       <Prosess />
       <Questions />
-
       <More />
       <Footer />
     </div >

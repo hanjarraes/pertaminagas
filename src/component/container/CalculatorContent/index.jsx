@@ -15,7 +15,7 @@ const CalculatorContent = ({ id }) => {
             <div className='calculator-efficency'>EFFICIENCY CALCULATOR</div>
             <div className='calculator-title'>Calculate Your Company's Potential <span>Savings</span></div>
             <div className='calculator-desc'>Find out how much your company can save by switiching to PGN's natural gas with our energy calculator</div>
-            <Button type='link' href="#" className='btn-default btn-mobile mt-3 mx-0' >
+            <Button type='link' href="/energy-calculator" className='btn-default btn-mobile mt-3 mx-0' >
               <div className='title'>Calculate Savings <ArrowRight2 /></div>
             </Button>
           </div>

@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import { Whatsapp, HambergerMenu } from 'iconsax-react'
 import Modal from 'react-modal'
 import LogoPertamina from '../../../assets/img/Logo_Pertamina_Gas_Negara.png'
+import { BOOK_MEETING_URL } from 'constants/meeting'
 import Button from '../../Button'
 
 const customStyles = {
@@ -111,48 +112,49 @@ const Header = ({ business }) => {
             <div className='items-modal'>
               {business
                 ? navBusiness.map((data, idx) => {
-                    return (
-                      <a
-                        href={data.href}
-                        onClick={() => setOpenModal(!openModal)}
-                        key={`nav-default-${idx}-mobile`}
-                      >
-                        {data.title}
-                      </a>
-                    )
-                  })
+                  return (
+                    <a
+                      href={data.href}
+                      onClick={() => setOpenModal(!openModal)}
+                      key={`nav-default-${idx}-mobile`}
+                    >
+                      {data.title}
+                    </a>
+                  )
+                })
                 : navDefault.map((data, idx) => {
-                    return (
-                      <a
-                        href={data.href}
-                        onClick={() => setOpenModal(!openModal)}
-                        key={`nav-default-${idx}-mobile`}
-                      >
-                        {data.title}
-                      </a>
-                    )
-                  })}
+                  return (
+                    <a
+                      href={data.href}
+                      onClick={() => setOpenModal(!openModal)}
+                      key={`nav-default-${idx}-mobile`}
+                    >
+                      {data.title}
+                    </a>
+                  )
+                })}
             </div>
             {business ? (
               <div>
-                <Button type='link' href='#' className='btn-light btn-mobile'>
+                <a target="_blank" href='#' className='btn-light btn-mobile'>
                   <div className='title'>Login Sobat PGN</div>
-                </Button>
-                <Button type='link' href='#' className='btn-default mt-3'>
+                </a>
+                <a target="_blank" href={BOOK_MEETING_URL} className='btn-default mt-3' rel="noreferrer">
                   <div className='title'>Book a Meeting</div>
-                </Button>
+                </a>
               </div>
             ) : (
               <div>
                 <a
+                  target="_blank"
                   href='https://api.whatsapp.com/send/?phone=6281511500645&text&type=phone_number&app_absent=0'
-                  className='btn-whatsApp'
+                  className='btn-whatsApp' rel="noreferrer"
                 >
                   <Whatsapp /> <div className='title'>Hubungi Kami</div>
                 </a>
-                <Button type='link' href='#' className='btn-default mt-3'>
+                <a target="_blank" href='#' className='btn-default mt-3'>
                   <div className='title'>Daftar Sekarang</div>
-                </Button>
+                </a>
               </div>
             )}
           </div>

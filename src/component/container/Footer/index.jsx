@@ -27,7 +27,7 @@ const Footer = ({ business = false }) => {
           <img src={LogoPertamina} alt="LogoPertamina" className='d-none d-md-block' />
           <div className="container mb-5">
             <div className='row mx-0 mx-md-2 text-left'>
-              <div className='col-6 col-md-4 d-flex flex-column'>
+              <div className='col-6 col-md-6 d-flex flex-column'>
                 <div className='title-footer'> SITEMAP</div>
                 {business ?
                   navBusiness.map((data, idx) => {
@@ -40,12 +40,12 @@ const Footer = ({ business = false }) => {
                 }
                 <Button type='link' href="#" className='content-footer'>Registrasi</Button>
               </div>
-              <div className='col-6 col-md-4 d-flex flex-column'>
+              {/* <div className='col-6 col-md-4 d-flex flex-column'>
                 <div className='title-footer'> TERMS OF CONDITIONS</div>
                 <Button type='link' href="#" className='content-footer'>Kebijakan Privasi</Button>
                 <Button type='link' href="#" className='content-footer'>Syarat Ketentuan</Button>
-              </div>
-              <div className='col-12 col-md-4 mt-4 mt-md-0 d-flex flex-column'>
+              </div> */}
+              <div className='col-6 col-md-6 mt-md-0 d-flex flex-column'>
                 <div className='title-footer'>CONTACT</div>
                 <Button type='link' href="#" className='content-footer'><Global /> pgn.co.id</Button>
                 <a href="mailto:pcc135@pertamina.com" className='content-footer'><Sms /> pcc135@pertamina.com</a>
