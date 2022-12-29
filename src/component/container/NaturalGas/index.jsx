@@ -4,7 +4,7 @@ import { itemsNaturalGas } from './service';
 
 const NaturalGas = () => {
   return (
-    <div className='natural-gas'>
+    <div className='natural-gas' id="NaturalGasBenefits">
       <div className='container d-flex flex-column align-items-center'>
         <div className='title-natural-gas' data-aos="fade-up">
           Natural Gas Distribution

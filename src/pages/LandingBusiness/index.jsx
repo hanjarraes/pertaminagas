@@ -17,12 +17,10 @@ const LandingBusiness = () => {
       <Header business />
       <Hero business />
       <LogoClient />
-
       <CalculatorContent id="CalculateSavings" />
       <Seccsion dataSeccsion={dataSeccsion} business />
       <NaturalGas />
       <Provide />
-
       <Footer business />
     </div >
   )
