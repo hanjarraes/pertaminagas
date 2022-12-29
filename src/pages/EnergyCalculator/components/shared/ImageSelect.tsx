@@ -61,7 +61,7 @@ export const ImageSelect: React.FC<ImageSelectProps> = React.forwardRef(
                                 {item.image ?
                                     <>
                                         <img src={item.image} alt={item.label} />
-                                        <div className={["overlay", variant2Class].join(" ")}></div>
+                                        <div className="overlay"></div>
                                     </> : undefined
                                 }
                                 <div className={["text-checkbox", variant2Class].join(" ")}>

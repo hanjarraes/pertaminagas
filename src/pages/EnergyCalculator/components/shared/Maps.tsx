@@ -19,7 +19,7 @@ const options: google.maps.MapOptions = {
     fullscreenControl: false,
     mapTypeControl: false,
     streetViewControl: false,
-    zoomControl: false
+    zoomControl: true
 }
 
 type Libraries = ("drawing" | "geometry" | "localContext" | "places" | "visualization")[];
