@@ -1,6 +1,9 @@
-import Footer from 'component/container/Footer'
 import React, { useEffect } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
+
+import Footer from 'component/container/Footer'
+import Header from 'component/container/Header'
+
 import ResultSection from './components/calculation-result/ResultSection'
 import { ResultRouteState } from './types/form'
 
@@ -9,7 +12,6 @@ const ResultPage = () => {
     const { state } = useLocation()
     const { formData, calculatorResult }: ResultRouteState = state ?? {}
 
-    console.log({ formData, calculatorResult });
 
     useEffect(() => {
         if (!formData || !calculatorResult) {
@@ -22,8 +24,9 @@ const ResultPage = () => {
 
     return (
         <div className='result-container'>
+            <Header business />
             <div className="bg-image"></div>
-            <ResultSection />
+            {formData && calculatorResult ? <ResultSection /> : undefined}
             <Footer />
         </div>
     )

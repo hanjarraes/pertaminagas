@@ -54,6 +54,11 @@
 .result-container {
     background-color: #FAFAFA;
     position: relative;
+
+    .navbar  {
+        position: relative;
+        z-index: 90;
+    }
     .bg-image {
         position: absolute;
         top: 0;
@@ -71,7 +76,13 @@
     .result-section {
         position: relative;
         z-index: 2;
-        padding: 65px 16px;
+        padding: 63px 16px;
+
+        @media (max-width: 500px) {
+            & {
+                padding: 16px;
+            }
+        }
     }
 
     .result-card {

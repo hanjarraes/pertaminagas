@@ -61,7 +61,6 @@ export const ImageSelect: React.FC<ImageSelectProps> = React.forwardRef(
                                 {item.image ?
                                     <>
                                         <img src={item.image} alt={item.label} />
-                                        <img src={item.image} alt={item.label} />
                                         <div className={["overlay", variant2Class].join(" ")}></div>
                                     </> : undefined
                                 }
