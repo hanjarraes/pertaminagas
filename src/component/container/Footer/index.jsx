@@ -27,7 +27,7 @@ const Footer = ({ business = false }) => {
           <img src={LogoPertamina} alt="LogoPertamina" className='d-none d-md-block' />
           <div className="container mb-5">
             <div className='row mx-0 mx-md-2 text-left'>
-              <div className='col-6 col-md-2 d-flex flex-column'>
+              <div className='col-6 col-md-3 d-flex flex-column'>
                 <div className='title-footer'> SITEMAP</div>
                 {business ?
                   navBusiness.map((data, idx) => {
