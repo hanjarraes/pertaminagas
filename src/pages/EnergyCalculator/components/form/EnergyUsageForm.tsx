@@ -55,18 +55,22 @@ const EnergyUsageForm = () => {
                                                 }
                                             }}
                                             render={({ field: { onChange, name, value } }) => (
-                                                <NumericFormat
-                                                    className={`form-control ${isInvalidClass}`}
-                                                    thousandSeparator={true}
-                                                    prefix={watchUnit === "Rupiah" ? "Rp " : undefined}
-                                                    decimalScale={0}
-                                                    placeholder="Input your monthly usage here"
-                                                    name={name}
-                                                    value={value}
-                                                    onValueChange={(v) => {
-                                                        onChange(v.floatValue)
-                                                    }}
-                                                />
+                                                <label className="has-float-label">
+                                                    <NumericFormat
+                                                        className={`form-control form-control-lg ${isInvalidClass}`}
+                                                        thousandSeparator={true}
+                                                        prefix={watchUnit === "Rupiah" ? "Rp " : undefined}
+                                                        decimalScale={0}
+                                                        placeholder="Input your monthly usage here"
+                                                        name={name}
+                                                        value={value}
+                                                        onValueChange={(v) => {
+                                                            onChange(v.floatValue)
+                                                        }}
+                                                    />
+                                                    <span className={isInvalidClass}>Your monthly usage</span>
+                                                </label>
+
                                             )}
                                         />
                                         <select
