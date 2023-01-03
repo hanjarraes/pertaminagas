@@ -3,7 +3,7 @@ html {
 }
 
 body {
-  font-family: "Helvetica", "Arial", sans-serif;
+  font-family: 'Helvetica', 'Arial', sans-serif;
   background-color: #c2dbff3d;
   overflow-x: hidden;
 }
@@ -57,6 +57,7 @@ body {
 }
 
 .body-m {
+  font-family: 'Helvetica Neue', 'Arial', sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 18px;
@@ -89,10 +90,10 @@ body {
 }
 
 .bg-img-hero-business {
-  background-image: url("../img/Hero/HeroBisnis.png") !important;
+  background-image: url('../img/Hero/HeroBisnis.png') !important;
 }
 .bg-img-hero {
-  background-image: url("../img/Hero/Hero.png") !important;
+  background-image: url('../img/Hero/Hero.png') !important;
 }
 
 .Hero {
@@ -348,7 +349,7 @@ body {
     background-repeat: no-repeat;
     background-position: center bottom;
     background-image: linear-gradient(to bottom right, #0069b449, #0069b4),
-      url("../img/image1.png");
+      url('../img/image1.png');
     background-size: cover;
     min-height: 384px;
   }
@@ -356,7 +357,7 @@ body {
     background-repeat: no-repeat;
     background-position: center bottom;
     background-image: linear-gradient(to bottom right, #0069b449, #0069b4),
-      url("../img/image2.png");
+      url('../img/image2.png');
     background-size: cover;
     min-height: 384px;
   }
@@ -443,7 +444,7 @@ body {
   .img-more {
     background-repeat: no-repeat;
     background-position: center bottom;
-    background-image: url("../img/more.png");
+    background-image: url('../img/more.png');
     background-size: cover;
     min-height: 518px;
   }
@@ -929,10 +930,10 @@ body {
   }
 
   .bg-img-hero-business {
-    background-image: url("../img/Hero/HeroBisnisMobile.png") !important;
+    background-image: url('../img/Hero/HeroBisnisMobile.png') !important;
   }
   .bg-img-hero {
-    background-image: url("../img/Hero/HeroMobile.png") !important;
+    background-image: url('../img/Hero/HeroMobile.png') !important;
   }
 
   .Hero {
