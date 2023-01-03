@@ -33,8 +33,8 @@ const EnergyUsageForm = () => {
 
                         return (
                             <div key={i} className="mb-5">
-                                <h5 className='title-s mb-3'>{`How much do you use ${findFuel?.title} monthly?`}</h5>
-                                <div className='mt-2 w-100 w-lg-75'>
+                                <h5 className='title-s mb-3 mb-md-24'>{`How much do you use ${findFuel?.title} monthly?`}</h5>
+                                <div className='w-100 w-lg-75'>
                                     <input
                                         type="hidden"
                                         {...register(`energyUsages.${i}.name`)}

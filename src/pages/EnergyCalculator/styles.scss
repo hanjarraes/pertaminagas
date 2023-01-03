@@ -232,10 +232,17 @@
             position: relative;
             z-index: 5;
             margin: 0;
-            font-size: 14px;
+            font-size: 18px;
+            line-height: 24px;
             font-weight: 700;
             text-align: left;
-            // color: white;
+            color: white;
+
+            @media (max-width: 500px) {
+                & {
+                    font-size: 16px;
+                }
+            }
         }
     
         input {
