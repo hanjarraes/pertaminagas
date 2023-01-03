@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { itemQuest, itemQuestAll } from './service';
 import Modal from 'react-modal';
+import close from '../../../assets/img/Icon/close.svg'
 import DropdownQuest from 'component/DropdownQuest';
 
 const customStyles = {
@@ -38,7 +39,7 @@ const Questions = () => {
               <div className='ModalHeader'>
                 <div className='d-flex justify-content-between'>
                   <div className='ModalQuestTitle'>Frequently Asked Questions</div>
-                  <span onClick={() => setOpenModal(!openModal)}>X</span>
+                  <img src={close} alt="close" onClick={() => setOpenModal(!openModal)} />
                 </div>
               </div>
               <div className='ModalBody' style={{ height: window.innerHeight - 310 }}>

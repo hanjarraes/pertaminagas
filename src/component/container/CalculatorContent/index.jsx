@@ -5,7 +5,7 @@ import { ArrowRight2 } from 'iconsax-react'
 
 const CalculatorContent = ({ id }) => {
   return (
-    <div className='calculatorContent' id={id}>
+    <div className='calculatorContent gradient-bg-to ' id={id}>
       <div className="container">
         <div className="row">
           <div className="col-12 col-md-6" data-aos="fade-right" data-aos-easing="linear" data-aos-duration="500">
@@ -15,7 +15,7 @@ const CalculatorContent = ({ id }) => {
             <div className='calculator-efficency'>EFFICIENCY CALCULATOR</div>
             <div className='calculator-title'>Calculate Your Company's Potential <span>Savings</span></div>
             <div className='calculator-desc'>Find out how much your company can save by switiching to PGN's natural gas with our energy calculator</div>
-            <Button type='link' href="/energy-calculator" className='btn-default btn-mobile mt-3 mx-0' >
+            <Button type='link' href="/energy-calculator" className='btn-default btn-mobile mx-0' >
               <div className='title'>Calculate Savings <ArrowRight2 /></div>
             </Button>
           </div>

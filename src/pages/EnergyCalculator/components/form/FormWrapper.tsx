@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 
-const Logo = require('assets/img/Logo_Pertamina_Gas_Negara.png');
+const Logo = require('assets/img/Icon/Logo_Pertamina_Gas_Negara1.svg');
 
 type FormWrapperProps = {
     title: string;

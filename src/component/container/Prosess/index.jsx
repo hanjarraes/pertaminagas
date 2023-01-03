@@ -16,7 +16,7 @@ const Prosess = () => {
           return (
             <>
               <div className='row p-5' key={`data-proses-${data.title}-${idx}`}>
-                <div className='col-12 col-md-6' data-aos="fade-right">
+                <div className='col-12 col-md-6 content-desc-prosess' data-aos="fade-right">
                   <div className='number-content-proses'>{idx + 1}</div>
                   <div className='title-content-proses'>{data.title}</div>
                   <div className='desc-content-proses'>

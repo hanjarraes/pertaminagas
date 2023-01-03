@@ -3,7 +3,7 @@ import Button from 'component/Button';
 
 const Seccsion = ({ dataSeccsion, business, id }) => {
   return (
-    <div className='seccsion' id={id}>
+    <div className={`${business ? '' : 'gradient-bg'} seccsion`} id={id}>
       <div className='title-seccsion' data-aos="fade-up">
         {dataSeccsion.title}
       </div>
@@ -18,7 +18,7 @@ const Seccsion = ({ dataSeccsion, business, id }) => {
               <div className='d-flex flex-column align-items-center'>
                 {data.logo}
                 <div className='title-card-seccsion'>
-                  {data.title}
+                  {data.gift ? <>{data.title}<span>*</span></> : data.title}
                 </div>
                 <div className='desc-card-seccsion'>
                   {
@@ -39,7 +39,7 @@ const Seccsion = ({ dataSeccsion, business, id }) => {
       {business ? "" : (
         <>
           <div className='syarat-dan-ketentuan'>*Syarat dan ketentuan berlaku</div>
-          <Button type='link' href="#" className='btn-default px-md-5 mt-3 btn-mobile' >
+          <Button type='link' href="#" className='btn-default px-md-5 btn-mobile' >
             <div className='title'>Daftar Sekarang</div>
           </Button>
         </>

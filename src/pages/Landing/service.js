@@ -38,7 +38,7 @@ export const dataSeccsion = {
   },
   {
     logo: <Gift />,
-    title: "Banyak Bonusnya*",
+    title: "Banyak Bonusnya",
     gift: [
       "Pipa Instalasi (s.d 15 m) ",
       "Konversi kompor",

@@ -15,7 +15,7 @@ const Provide = ({ id }) => {
       <div className='card-provide-content'>
         {itemProvide.map((data, idx) => {
           return (
-            <div className='px-3 py-3' key={`data-provide-${data.title}-${idx}`} data-aos="fade-up">
+            <div className='px-3 card-margin-provide' key={`data-provide-${data.title}-${idx}`} data-aos="fade-up">
               <div className='d-flex flex-column'>
                 <div className='card-number-provide'>{idx + 1}</div>
                 <div className='field-card-provide'>
@@ -32,7 +32,7 @@ const Provide = ({ id }) => {
         })}
       </div>
       <div className='text-content-provide '>We're always ready for your questions!</div>
-      <a target="_blank" href={BOOK_MEETING_URL} className='btn-default px-md-5 mt-3 btn-mobile' rel="noreferrer" >
+      <a target="_blank" href={BOOK_MEETING_URL} className='btn-default px-md-5 btn-mobile' rel="noreferrer" >
         <div className='title'>Book an Online Meeting</div>
       </a>
     </div>

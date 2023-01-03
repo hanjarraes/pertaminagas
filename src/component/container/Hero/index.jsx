@@ -1,6 +1,6 @@
 import React from 'react'
-import LogoGasKita from '../../../assets/img/Logo_Gaskita.png'
-import LogoGasLine from '../../../assets/img/LogoGasLine.png'
+import LogoGasKita from '../../../assets/img/Icon/Logo_Gaskita.svg'
+import LogoGasLine from '../../../assets/img/Icon/Logo_Gasline.svg'
 import { BOOK_MEETING_URL } from 'constants/meeting'
 import { ArrowRight2 } from 'iconsax-react'
 
@@ -13,7 +13,7 @@ const Hero = ({ business }) => {
             <div className='d-flex justify-content-start'>
               <img src={business ? LogoGasLine : LogoGasKita} alt="LogoGas kita" />
             </div>
-            <div className='title-card-hero'>
+            <div className={`${business ? 'title-card-bisnis' : ''} title-card-hero`}>
               {
                 business ?
                   <> More <span>Efficient</span>, Less <span style={{ color: '#7DB139' }}>Emission</span> for Businesses </>
@@ -21,7 +21,7 @@ const Hero = ({ business }) => {
                   <> Rasakan Modernnya aliran <span>Gas</span> Tanpa Putus </>
               }
             </div>
-            <div className='content-card-hero'>
+            <div className={`${business ? 'title-card-bisnis' : ''} content-card-hero`}>
               {
                 business ?
                   "Our customers' testimonials include providing efficiency and lowering emissions. Here, we will provide a complete package to help you become better"
@@ -32,7 +32,7 @@ const Hero = ({ business }) => {
             <hr />
             {
               business ?
-                <div className='d-flex pt-3'>
+                <div className='d-flex'>
                   <a target="_blank" href={BOOK_MEETING_URL} className='btn-default ml-0' rel="noreferrer" >
                     <div className='title'>Book an Online Meeting</div>
                   </a>
@@ -41,7 +41,7 @@ const Hero = ({ business }) => {
                   </a>
                 </div>
                 :
-                <div className='d-flex pt-3'>
+                <div className='d-flex'>
                   <a href={() => false} className='btn-default ml-0' >
                     <div className='title'>Daftar Sekarang</div>
                   </a>

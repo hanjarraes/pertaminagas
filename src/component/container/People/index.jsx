@@ -81,7 +81,7 @@ const People = () => {
         ) : ''}
       </div>
 
-      <div className='d-flex align-items-center mt-4' data-aos="fade-up">
+      <div className='d-flex align-items-center content-pagination' data-aos="fade-up">
         <div
           className='paging-people-arraw mx-3'
           onClick={() => {
