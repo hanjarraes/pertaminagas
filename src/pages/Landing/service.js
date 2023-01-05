@@ -1,10 +1,10 @@
 import {
-  ShieldTick,
-  Verify,
-  Like1,
-  StatusUp,
-  Setting4,
   Gift,
+  Like1,
+  Setting4,
+  ShieldTick,
+  StatusUp,
+  Verify,
 } from "iconsax-react";
 
 export const dataSeccsion = {
@@ -39,10 +39,7 @@ export const dataSeccsion = {
   {
     logo: <Gift />,
     title: "Banyak Bonusnya",
-    gift: [
-      "Pipa Instalasi (s.d 15 m) ",
-      "Konversi kompor",
-      "Pipe safety inspection",
-    ],
+      decs:
+        "Pipa Instalasi (s.d 15 m); Konversi kompor; Pipe safety inspection",
   },
 ]};

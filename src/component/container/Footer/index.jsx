@@ -47,25 +47,20 @@ const Footer = ({ business = false }) => {
                       </Button>
                     )
                   })
-                ) : (
-                  <>
-                    {navDefault.map((data, idx) => {
-                      return (
-                        <Button
-                          type='link'
-                          href={data.href}
-                          className='content-footer'
-                          key={`footer-default-${idx}`}
-                        >
-                          {data.title}
-                        </Button>
-                      )
-                    })}
-                    <Button type='link' href='#' className='content-footer'>
-                      Registrasi
-                    </Button>
-                  </>
-                )}
+                  :
+                  (
+                    <>
+                      {
+                        navDefault.map((data, idx) => {
+                          return <Button type='link' href={data.href} className='content-footer' key={`footer-default-${idx}`} isExternal>{data.title}</Button>
+                        })
+                      }
+                      < Button type='link' href="#" className='content-footer'>Registrasi</Button>
+                    </>
+
+                  )
+
+                }
               </div>
               <div className='col-6 col-md-4 mt-md-0 d-flex flex-column'>
                 <div className='title-footer'>CONTACT</div>
@@ -138,4 +133,4 @@ const Footer = ({ business = false }) => {
   )
 }
 
-export default Footer
+export default Footer;

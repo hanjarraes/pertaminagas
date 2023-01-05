@@ -1,5 +1,5 @@
-import React from 'react'
-import Button from 'component/Button';
+import React from "react";
+import Button from "component/Button";
 
 const Seccsion = ({ dataSeccsion, business, id }) => {
   return (
@@ -7,32 +7,38 @@ const Seccsion = ({ dataSeccsion, business, id }) => {
       <div className='title-seccsion' data-aos="fade-up">
         {dataSeccsion.title}
       </div>
-      <div className='desc-seccsion' data-aos="fade-up">
+      <div className="desc-seccsion" data-aos="fade-up">
         {dataSeccsion.desc}
       </div>
 
-      <div className='content-card-seccsion'>
+      <div className="content-card-seccsion">
         {dataSeccsion.itemSeccsion.map((data, idx) => {
           return (
-            <div className='card-seccsion mt-3 mt-md-4' key={`data-seccsion-${data.title}-${idx}`} data-aos="fade-up">
-              <div className='d-flex flex-column align-items-center'>
+            <div
+              className="card-seccsion mt-3 mt-md-4"
+              key={`data-seccsion-${data.title}-${idx}`}
+              data-aos="fade-up"
+            >
+              <div className="d-flex flex-column align-items-center">
                 {data.logo}
                 <div className='title-card-seccsion'>
                   {data.gift ? <>{data.title}<span>*</span></> : data.title}
                 </div>
-                <div className='desc-card-seccsion'>
-                  {
-                    data.gift ? data.gift.map(item => {
+                <div className="desc-card-seccsion">
+                  {data.decs.split(";").length > 1
+                    ? data.decs.split(";").map((item) => {
                       return (
-                        <div className='d-flex align-items-center'>
-                          <div className='circle' />{item}
+                        <div className="d-flex align-items-center">
+                          <div className="circle" />
+                          {item}
                         </div>
-                      )
-                    }) : data.decs}
+                      );
+                    })
+                    : data.decs}
                 </div>
               </div>
             </div>
-          )
+          );
         })}
       </div>
 
@@ -45,7 +51,7 @@ const Seccsion = ({ dataSeccsion, business, id }) => {
         </>
       )}
     </div>
-  )
-}
+  );
+};
 
 export default Seccsion;
