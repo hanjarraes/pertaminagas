@@ -1,29 +1,38 @@
-import React from 'react'
-import Hero from 'component/container/Hero';
-import Header from '../../component/container/Header';
-import Seccsion from 'component/container/Seccsion';
-import LogoClient from 'component/container/LogoClient';
-import Footer from 'component/container/Footer';
-import CalculatorContent from 'component/container/CalculatorContent';
-import NaturalGas from 'component/container/NaturalGas';
-import Provide from 'component/container/Provide';
-import { dataSeccsion } from './service';
-
-
+import React, { useEffect } from 'react'
+import Hero from 'component/container/Hero'
+import Header from '../../component/container/Header'
+import Seccsion from 'component/container/Seccsion'
+import LogoClient from 'component/container/LogoClient'
+import Footer from 'component/container/Footer'
+import CalculatorContent from 'component/container/CalculatorContent'
+import NaturalGas from 'component/container/NaturalGas'
+import Provide from 'component/container/Provide'
+import { dataSeccsion } from './service'
+import { useLocation } from 'react-router-dom'
 
 const LandingBusiness = () => {
+  const { hash } = useLocation()
+
+  useEffect(() => {
+    if (hash) {
+      setTimeout(() => {
+        document.querySelector(hash)?.scrollIntoView()
+      }, 100)
+    }
+  }, [hash])
+
   return (
     <div>
       <Header business />
       <Hero business />
       <LogoClient />
-      <CalculatorContent id="CalculateSavings" />
+      <CalculatorContent id='CalculateSavings' />
       <Seccsion dataSeccsion={dataSeccsion} business />
       <NaturalGas />
       <Provide />
       <Footer business />
-    </div >
+    </div>
   )
 }
 
-export default LandingBusiness;
+export default LandingBusiness

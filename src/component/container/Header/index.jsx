@@ -18,13 +18,13 @@ const customStyles = {
 }
 
 const navDefault = [
-  { href: '#KelebihanGasBumi', title: 'Kelebihan Gas Bumi' },
-  { href: '#FAQ', title: 'FAQ' },
+  { href: '/#KelebihanGasBumi', title: 'Kelebihan Gas Bumi' },
+  { href: '/#FAQ', title: 'FAQ' },
   { href: '/business', title: 'Gas Untuk Industri' },
 ]
 const navBusiness = [
-  { href: '#CalculateSavings', title: 'Calculate Savings' },
-  { href: '#NaturalGasBenefits', title: 'Natural Gas Benefits' },
+  { href: '/business#CalculateSavings', title: 'Calculate Savings' },
+  { href: '/business#NaturalGasBenefits', title: 'Natural Gas Benefits' },
   { href: '/', title: 'Residential' },
 ]
 
@@ -113,47 +113,53 @@ const Header = ({ business }) => {
               <div className='items-modal'>
                 {business
                   ? navBusiness.map((data, idx) => {
-                    return (
-                      <a
-                        href={data.href}
-                        onClick={() => setOpenModal(!openModal)}
-                        key={`nav-default-${idx}-mobile`}
-                      >
-                        {data.title}
-                      </a>
-                    )
-                  })
+                      return (
+                        <a
+                          href={data.href}
+                          onClick={() => setOpenModal(!openModal)}
+                          key={`nav-default-${idx}-mobile`}
+                        >
+                          {data.title}
+                        </a>
+                      )
+                    })
                   : navDefault.map((data, idx) => {
-                    return (
-                      <a
-                        href={data.href}
-                        onClick={() => setOpenModal(!openModal)}
-                        key={`nav-default-${idx}-mobile`}
-                      >
-                        {data.title}
-                      </a>
-                    )
-                  })}
+                      return (
+                        <a
+                          href={data.href}
+                          onClick={() => setOpenModal(!openModal)}
+                          key={`nav-default-${idx}-mobile`}
+                        >
+                          {data.title}
+                        </a>
+                      )
+                    })}
               </div>
               {business ? (
                 <div>
-                  <a target="_blank" href='#' className='btn-light btn-mobile'>
+                  <a target='_blank' href='#' className='btn-light btn-mobile'>
                     <div className='title'>Login Sobat PGN</div>
                   </a>
-                  <a target="_blank" href={BOOK_MEETING_URL} className='btn-default mt-3' rel="noreferrer">
+                  <a
+                    target='_blank'
+                    href={BOOK_MEETING_URL}
+                    className='btn-default mt-3'
+                    rel='noreferrer'
+                  >
                     <div className='title'>Book an Online Meeting</div>
                   </a>
                 </div>
               ) : (
                 <div>
                   <a
-                    target="_blank"
+                    target='_blank'
                     href='https://api.whatsapp.com/send/?phone=6281511500645&text&type=phone_number&app_absent=0'
-                    className='btn-whatsApp' rel="noreferrer"
+                    className='btn-whatsApp'
+                    rel='noreferrer'
                   >
                     <Whatsapp /> <div className='title'>Hubungi Kami</div>
                   </a>
-                  <a target="_blank" href='#' className='btn-default mt-3'>
+                  <a target='_blank' href='#' className='btn-default mt-3'>
                     <div className='title'>Daftar Sekarang</div>
                   </a>
                 </div>
@@ -164,8 +170,12 @@ const Header = ({ business }) => {
       </nav>
       <div className='line-header'>
         <div className='row'>
-          <div className='col-8'><hr /></div>
-          <div className='col-4'><hr /></div>
+          <div className='col-8'>
+            <hr />
+          </div>
+          <div className='col-4'>
+            <hr />
+          </div>
         </div>
       </div>
     </>
