@@ -55,7 +55,7 @@ const Footer = ({ business = false }) => {
                           return <Button type='link' href={data.href} className='content-footer' key={`footer-default-${idx}`} isExternal>{data.title}</Button>
                         })
                       }
-                      < Button type='link' href="#" className='content-footer'>Registrasi</Button>
+                      < Button type='link' href="https://online.pgn.co.id/register/residensial" className='content-footer' isExternal>Registrasi</Button>
                     </>
 
                   )

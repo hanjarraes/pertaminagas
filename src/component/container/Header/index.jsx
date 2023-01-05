@@ -163,7 +163,7 @@ const Header = ({ business }) => {
                   >
                     <Whatsapp /> <div className='title'>Hubungi Kami</div>
                   </a>
-                  <a target='_blank' href='#' className='btn-default mt-3'>
+                  <a target="_blank" href='https://online.pgn.co.id/register/residensial' className='btn-default mt-3' rel='noreferrer'>
                     <div className='title'>Daftar Sekarang</div>
                   </a>
                 </div>

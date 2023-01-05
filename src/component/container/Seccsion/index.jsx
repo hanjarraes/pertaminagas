@@ -45,7 +45,7 @@ const Seccsion = ({ dataSeccsion, business, id }) => {
       {business ? "" : (
         <>
           <div className='syarat-dan-ketentuan'>*Syarat dan ketentuan berlaku</div>
-          <Button type='link' href="#" className='btn-default px-md-5 btn-mobile' >
+          <Button type='link' href="https://online.pgn.co.id/register/residensial" className='btn-default px-md-5 btn-mobile' isExternal>
             <div className='title'>Daftar Sekarang</div>
           </Button>
         </>
