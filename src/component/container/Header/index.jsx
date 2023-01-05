@@ -63,7 +63,11 @@ const Header = ({ business }) => {
                     )
                   })}
                   <li>
-                    <Button type='link' href='#' className='btn-light px-4'>
+                    <Button
+                      type='link'
+                      href='/business#'
+                      className='btn-light px-4'
+                    >
                       <div className='title'>Login Sobat PGN</div>
                     </Button>
                   </li>
