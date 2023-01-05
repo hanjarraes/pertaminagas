@@ -27,7 +27,7 @@ const ResultPage = () => {
             <Header business />
             <div className="bg-image"></div>
             {formData && calculatorResult ? <ResultSection /> : undefined}
-            <Footer />
+            <Footer business />
         </div>
     )
 }
