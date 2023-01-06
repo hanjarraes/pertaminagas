@@ -7,7 +7,7 @@ import { ArrowRight2 } from 'iconsax-react'
 const Hero = ({ business }) => {
   return (
     <div className={`Hero ${business ? 'bg-img-hero-business' : 'bg-img-hero'}`}>
-      <div className="container">
+      <div className="container d-flex align-items-center">
         <div className='card-hero' data-aos="fade-right">
           <div>
             <div className='d-flex justify-content-start'>

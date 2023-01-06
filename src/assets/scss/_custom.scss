@@ -3,7 +3,7 @@ html {
 }
 
 body {
-  font-family: 'Helvetica', 'Arial', sans-serif;
+  font-family: "Helvetica", "Arial", sans-serif;
   background-color: #c2dbff3d;
   overflow-x: hidden;
 }
@@ -66,7 +66,7 @@ body {
 }
 
 .body-m {
-  font-family: 'Helvetica Neue', 'Arial', sans-serif;
+  font-family: "Helvetica Neue", "Arial", sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 18px;
@@ -75,7 +75,7 @@ body {
 }
 
 .body-s {
-  font-family: 'Helvetica Neue', 'Arial', sans-serif;
+  font-family: "Helvetica Neue", "Arial", sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 14px;
@@ -123,10 +123,10 @@ body {
 }
 
 .bg-img-hero-business {
-  background-image: url('../img/Hero/HeroBisnis.png') !important;
+  background-image: url("../img/Hero/HeroBisnis.png") !important;
 }
 .bg-img-hero {
-  background-image: url('../img/Hero/Hero.png') !important;
+  background-image: url("../img/Hero/Hero.png") !important;
 }
 
 .Hero {
@@ -135,6 +135,8 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   min-height: 700px;
+  display: flex;
+  align-items: center;
 }
 
 .circle {
@@ -147,7 +149,6 @@ body {
 .card-hero {
   position: absolute;
   background: #fff;
-  margin-top: 130px;
   border-radius: 16px;
   padding: 40px;
 
@@ -164,7 +165,7 @@ body {
     line-height: 68px;
     font-weight: 700;
     font-size: 54px;
-    width: 682px;
+    width: 565px;
     text-align: left;
     span {
       color: $blue;
@@ -258,11 +259,11 @@ body {
 }
 
 .gradient-bg {
-  background-image: linear-gradient($blueLight, $white);
+  background-image: linear-gradient(#f1f6ff, $white);
 }
 
 .gradient-bg-to {
-  background-image: linear-gradient($white, $blueLight);
+  background-image: linear-gradient($white, #f1f6ff);
 }
 
 .seccsion {
@@ -271,7 +272,7 @@ body {
   align-items: center;
   padding: 3rem 0;
   .btn-default {
-    margin-top: 52px;
+    margin-top: 48px;
   }
   .title-seccsion {
     text-align: center;
@@ -412,7 +413,7 @@ body {
     background-repeat: no-repeat;
     background-position: center bottom;
     background-image: linear-gradient(to bottom right, #0069b449, #0069b4),
-      url('../img/image1.png');
+      url("../img/image1.png");
     background-size: cover;
     min-height: 384px;
   }
@@ -420,7 +421,7 @@ body {
     background-repeat: no-repeat;
     background-position: center bottom;
     background-image: linear-gradient(to bottom right, #0069b449, #0069b4),
-      url('../img/image2.png');
+      url("../img/image2.png");
     background-size: cover;
     min-height: 384px;
   }
@@ -513,9 +514,9 @@ body {
   .img-more {
     background-repeat: no-repeat;
     background-position: center bottom;
-    background-image: url('../img/more.png');
+    background-image: url("../img/more.png");
     background-size: cover;
-    min-height: 518px;
+    min-height: 517px;
   }
   .desc-more-content {
     background-color: $blue;
@@ -568,7 +569,7 @@ body {
     border-bottom: 1px solid $gray-600;
     border-color: #e5e5e5;
     padding: 20px;
-    background-color: $gray-500;
+    background-color: #F5F5F5;
     .ModalQuestTitle {
       font-weight: 700;
       font-size: 24px;
@@ -685,7 +686,7 @@ body {
       display: flex;
       padding: 9px;
       border-radius: 100px;
-      background: $blueLight;
+      background: #F5F5F5;
       align-items: center;
       justify-content: center;
       img {
@@ -830,7 +831,7 @@ body {
     font-size: 18px;
     font-weight: 400;
     width: 626px;
-    margin-top: 10px;
+    margin-top: 16px;
     color: $gray-600;
   }
   .card-provide-content {
@@ -866,7 +867,6 @@ body {
         width: max-content;
         font-size: 24px;
         font-weight: 700;
-        margin-top: 20px;
       }
       .desc-card-provide {
         font-size: 16px;
@@ -1029,10 +1029,10 @@ body {
   }
 
   .bg-img-hero-business {
-    background-image: url('../img/Hero/HeroBisnisMobile.png') !important;
+    background-image: url("../img/Hero/HeroBisnisMobile.png") !important;
   }
   .bg-img-hero {
-    background-image: url('../img/Hero/HeroMobile.png') !important;
+    background-image: url("../img/Hero/HeroMobile.png") !important;
   }
 
   .Hero {

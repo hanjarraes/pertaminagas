@@ -34,7 +34,7 @@ const Header = ({ business }) => {
     <>
       <nav className='navbar navbar-expand-lg navbar-light bg-light'>
         <div className='container'>
-          <a className='navbar-brand' href='/'>
+          <a className='navbar-brand d-flex' href='/'>
             <object data={LogoPertamina}> </object>
           </a>
           <div
@@ -117,27 +117,27 @@ const Header = ({ business }) => {
               <div className='items-modal'>
                 {business
                   ? navBusiness.map((data, idx) => {
-                      return (
-                        <a
-                          href={data.href}
-                          onClick={() => setOpenModal(!openModal)}
-                          key={`nav-default-${idx}-mobile`}
-                        >
-                          {data.title}
-                        </a>
-                      )
-                    })
+                    return (
+                      <a
+                        href={data.href}
+                        onClick={() => setOpenModal(!openModal)}
+                        key={`nav-default-${idx}-mobile`}
+                      >
+                        {data.title}
+                      </a>
+                    )
+                  })
                   : navDefault.map((data, idx) => {
-                      return (
-                        <a
-                          href={data.href}
-                          onClick={() => setOpenModal(!openModal)}
-                          key={`nav-default-${idx}-mobile`}
-                        >
-                          {data.title}
-                        </a>
-                      )
-                    })}
+                    return (
+                      <a
+                        href={data.href}
+                        onClick={() => setOpenModal(!openModal)}
+                        key={`nav-default-${idx}-mobile`}
+                      >
+                        {data.title}
+                      </a>
+                    )
+                  })}
               </div>
               {business ? (
                 <div>

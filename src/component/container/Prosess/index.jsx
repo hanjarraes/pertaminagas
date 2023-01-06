@@ -4,7 +4,7 @@ import Button from 'component/Button';
 
 const Prosess = () => {
   return (
-    <div className='proses'>
+    <div className='proses gradient-bg-to '>
       <div className='title-proses' data-aos="fade-up">
         Proses yang kita lalui bersama
       </div>
