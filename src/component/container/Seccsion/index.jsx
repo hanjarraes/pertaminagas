@@ -11,36 +11,39 @@ const Seccsion = ({ dataSeccsion, business, id }) => {
         {dataSeccsion.desc}
       </div>
 
-      <div className="content-card-seccsion">
-        {dataSeccsion.itemSeccsion.map((data, idx) => {
-          return (
-            <div
-              className="card-seccsion mt-3 mt-md-4"
-              key={`data-seccsion-${data.title}-${idx}`}
-              data-aos="fade-up"
-            >
-              <div className="d-flex flex-column align-items-center">
-                {data.logo}
-                <div className='title-card-seccsion'>
-                  {data.gift ? <>{data.title}<span>*</span></> : data.title}
-                </div>
-                <div className="desc-card-seccsion">
-                  {data.decs.split(";").length > 1
-                    ? data.decs.split(";").map((item) => {
-                      return (
-                        <div className="d-flex align-items-center">
-                          <div className="circle" />
-                          {item}
-                        </div>
-                      );
-                    })
-                    : data.decs}
+      <div className="container">
+        <div className="content-card-seccsion">
+          {dataSeccsion.itemSeccsion.map((data, idx) => {
+            return (
+              <div
+                className="card-seccsion mt-3 mt-md-4"
+                key={`data-seccsion-${data.title}-${idx}`}
+                data-aos="fade-up"
+              >
+                <div className="d-flex flex-column align-items-center">
+                  {data.logo}
+                  <div className='title-card-seccsion'>
+                    {data.gift ? <>{data.title}<span>*</span></> : data.title}
+                  </div>
+                  <div className="desc-card-seccsion">
+                    {data.decs.split(";").length > 1
+                      ? data.decs.split(";").map((item) => {
+                        return (
+                          <div className="d-flex align-items-center">
+                            <div className="circle" />
+                            {item}
+                          </div>
+                        );
+                      })
+                      : data.decs}
+                  </div>
                 </div>
               </div>
-            </div>
-          );
-        })}
+            );
+          })}
+        </div>
       </div>
+
 
       {!business ? (
         <>
@@ -49,7 +52,7 @@ const Seccsion = ({ dataSeccsion, business, id }) => {
             <div className='title'>Daftar Sekarang</div>
           </Button>
         </>
-      ) : ""  }
+      ) : ""}
     </div>
   );
 };
