@@ -42,7 +42,7 @@ const Hero = ({ business }) => {
                 </div>
                 :
                 <div className='d-flex'>
-                  <a href={() => false} className='btn-default ml-0' >
+                  <a href="https://online.pgn.co.id/register/residensial" className='btn-default ml-0' >
                     <div className='title'>Daftar Sekarang</div>
                   </a>
                   <a href='/business' className='btn-light'>
