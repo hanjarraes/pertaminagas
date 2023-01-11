@@ -11,7 +11,7 @@ const BussinessTypeForm = () => {
     } = useFormContext<FormSchema>();
 
     return (
-        <FormWrapper title='Company profile' description='By telling us your contact, you will be able to receive the efficiency calculation result directly. You might also get some interesting offers from us.'>
+        <FormWrapper title='Company profile' description='In order to provide you with the most accurate results, please select the type of business you operate from the options below:'>
             <div className='px-3 py-0 px-lg-7 py-lg-3'>
                 <h5 className='title-s mb-3 mb-md-24'>Select your type of business</h5>
                 <Controller

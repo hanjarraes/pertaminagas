@@ -11,7 +11,7 @@ const CompanyDetailsForm = () => {
     const invalidErrorClass = 'is-invalid';
 
     return (
-        <FormWrapper title='Tell us about your company' description='Here are our efficiency calculation based on your current fuel usage and location'>
+        <FormWrapper title='Tell us about your company' description='By telling us your contact and company information, you will be able to receive the efficiency calculation result directly. You might also get some interesting offers from us.'>
             <div className='px-3 py-0 px-lg-7 py-lg-3'>
                 <h5 className='title-s mb-3 mb-md-24'>Input your company details</h5>
                 <div className="mb-3 mb-md-24">
