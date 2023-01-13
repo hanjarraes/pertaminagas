@@ -35,7 +35,7 @@ const Header = ({ business }) => {
       <nav className='navbar navbar-expand-lg navbar-light bg-light'>
         <div className='container'>
           <a className='navbar-brand d-flex' href='/'>
-            <object data={LogoPertamina}> </object>
+            <img src={LogoPertamina} alt="LogoPertamina" className="img-header" />
           </a>
           <div
             className='d-flex d-md-none'
@@ -88,8 +88,10 @@ const Header = ({ business }) => {
                   })}
                   <li>
                     <a
+                      target='_blank'
                       href='https://api.whatsapp.com/send/?phone=6281511500645&text&type=phone_number&app_absent=0'
                       className='btn-whatsApp'
+                      rel='noreferrer'
                     >
                       <Whatsapp /> <div className='title'>Hubungi Kami</div>
                     </a>
