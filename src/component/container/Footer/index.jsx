@@ -44,6 +44,7 @@ const Footer = ({ business = false }) => {
                             href={data.href}
                             className="content-footer"
                             key={`footer-bisnis-${idx}`}
+                            isExternal={data.href.match(/business/g)}
                           >
                             {data.title}
                           </Button>

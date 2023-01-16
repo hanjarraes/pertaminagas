@@ -41,7 +41,7 @@ export default function LandingBusiness() {
       <Hero business />
       <LogoClient />
       <CalculatorContent id="CalculateSavings" />
-      <Seccsion dataSeccsion={usp} business/>
+      <Seccsion dataSeccsion={usp} business  id="NaturalGasBenefits"/>
       <NaturalGas />
       <Provide />
       <Footer business />
