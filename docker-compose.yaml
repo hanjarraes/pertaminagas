@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  web-home:
+    platform: linux/amd64
+    build:
+      context: ./
+      args:
+        REACT_APP_API_URL: ${REACT_APP_API_URL}
+        REACT_APP_CMS_API_URL: ${REACT_APP_CMS_API_URL}
+        REACT_APP_CMS_API_KEY: ${REACT_APP_CMS_API_KEY}
+    ports:
+      - 3001:3001

@@ -1,0 +1,8 @@
+version: '3.8'
+
+services:
+  web-home:
+    restart: unless-stopped
+    image: hub.pgn.co.id/natuno/web-home
+    ports:
+      - 3001:3001
