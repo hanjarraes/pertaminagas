@@ -7,6 +7,7 @@ services:
       context: ./
       args:
         REACT_APP_API_URL: ${REACT_APP_API_URL}
+        REACT_APP_GOOGLE_MAPS_API_KEY: ${REACT_APP_GOOGLE_MAPS_API_KEY}
         REACT_APP_CMS_API_URL: ${REACT_APP_CMS_API_URL}
         REACT_APP_CMS_API_KEY: ${REACT_APP_CMS_API_KEY}
     ports:
