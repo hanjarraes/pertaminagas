@@ -22,7 +22,11 @@ const Footer = ({ business = false }) => {
       <div className="footer-content">
         <div className="container">
           <div className="d-flex d-md-none justify-content-between align-items-center">
-            <img src={LogoPertamina} alt="LogoPertamina" className="img-widht" />
+            <img
+              src={LogoPertamina}
+              alt="LogoPertamina"
+              className="img-widht"
+            />
             <img src={LogoCall} alt="LogoCall" />
           </div>
           <div className="d-flex align-items-start mt-4 mt-md-0">
@@ -108,7 +112,7 @@ const Footer = ({ business = false }) => {
           <hr />
           <div className="footer-icon-item">
             <div className="footer-copyright">
-              © 2023 PT Perusahaan Gas Negara (Persero) Tbk.
+              © 2023 PT Perusahaan Gas Negara Tbk.
             </div>
             <div className="d-flex">
               <a
