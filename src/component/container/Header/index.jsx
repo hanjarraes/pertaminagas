@@ -69,6 +69,9 @@ const Header = ({ business }) => {
                         </li>
                       );
                     })}
+                    {
+                      /*
+
                     <li>
                       <Button
                         type="link"
@@ -79,6 +82,8 @@ const Header = ({ business }) => {
                         <div className="title">Login Sobat PGN</div>
                       </Button>
                     </li>
+                      */
+                    }
                   </ul>
                 )
                 : (
@@ -153,6 +158,9 @@ const Header = ({ business }) => {
               {business
                 ? (
                   <div>
+                    {
+                      /*
+
                     <a
                       target="_blank"
                       href="#"
@@ -160,6 +168,8 @@ const Header = ({ business }) => {
                     >
                       <div className="title">Login Sobat PGN</div>
                     </a>
+                       */
+                    }
                     <a
                       target="_blank"
                       href={BOOK_MEETING_URL}
