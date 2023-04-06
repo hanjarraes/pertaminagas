@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { HambergerMenu, Whatsapp } from "iconsax-react";
 import Modal from "react-modal";
 import LogoPertamina from "../../../assets/img/Icon/Logo_Pertamina_Gas_Negara1.svg";
+import WhatsAppIcon from "../../../assets/img/Icon/whatsapp.png";
 import { BOOK_MEETING_URL } from "constants/meeting";
 import Button from "../../Button";
 
@@ -107,7 +108,12 @@ const Header = ({ business }) => {
                         className="btn-whatsApp"
                         rel="noreferrer"
                       >
-                        <Whatsapp /> <div className="title">Hubungi Kami</div>
+                        <img
+                          src={WhatsAppIcon}
+                          alt="WhatsAppIcon"
+                          style={{ marginRight: 8 }}
+                        />
+                        <div className="title">Hubungi Kami</div>
                       </a>
                     </li>
                   </ul>
