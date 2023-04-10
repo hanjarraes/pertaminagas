@@ -167,7 +167,7 @@ const EnergyCalculatorPage = () => {
 
   return (
     <FormProvider {...formMethods}>
-      <form>
+      <form onSubmit={(e) => e.preventDefault()}>
         <div className="calculator-container">
           <div className="d-flex w-100 h-100">
             <div className="d-none d-lg-block section-left">
