@@ -22,19 +22,29 @@ const Footer = ({ business = false }) => {
       <div className="footer-content">
         <div className="container">
           <div className="d-flex d-md-none justify-content-between align-items-center">
-            <img
-              src={LogoPertamina}
-              alt="LogoPertamina"
-              className="img-widht"
-            />
-            <img src={LogoCall} alt="LogoCall" />
+            <a
+              href={business ? "/business" : "/"}
+              className="d-none d-md-block"
+            >
+              <img
+                src={LogoPertamina}
+                alt="LogoPertamina"
+                className="img-widht"
+              />
+              <img src={LogoCall} alt="LogoCall" />
+            </a>
           </div>
           <div className="d-flex align-items-start mt-4 mt-md-0">
-            <img
-              src={LogoPertamina}
-              alt="LogoPertamina"
-              className="d-none d-md-block img-widht"
-            />
+            <a
+              href={business ? "/business" : "/"}
+              className="d-none d-md-block"
+            >
+              <img
+                src={LogoPertamina}
+                alt="LogoPertamina"
+                className="d-none d-md-block img-widht"
+              />
+            </a>
             <div className="container custom-container-footer mb-5">
               <div className="row mx-0 mx-md-2 text-left">
                 <div className="col-6 col-md-3 d-flex flex-column">

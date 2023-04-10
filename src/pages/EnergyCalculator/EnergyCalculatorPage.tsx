@@ -87,7 +87,7 @@ const EnergyCalculatorPage = () => {
 
   const onBack = () => {
     if (isFirstStep) {
-      return navigate("/");
+      return navigate("/business");
     }
 
     return back();
