@@ -14,7 +14,7 @@ const navDefault = [
 const navBusiness = [
   { href: "/business#CalculateSavings", title: "Calculate Savings" },
   { href: "/business#NaturalGasBenefits", title: "Natural Gas Benefits" },
-  { href: "/", title: "Residential" },
+  { href: "/#home", title: "Residential" },
 ];
 const Footer = ({ business = false }) => {
   return (
@@ -43,15 +43,14 @@ const Footer = ({ business = false }) => {
                     ? (
                       navBusiness.map((data, idx) => {
                         return (
-                          <Button
-                            type="link"
+                          <a
                             href={data.href}
                             className="content-footer"
                             key={`footer-bisnis-${idx}`}
                             isExternal={data.href.match(/business/g)}
                           >
                             {data.title}
-                          </Button>
+                          </a>
                         );
                       })
                     )
