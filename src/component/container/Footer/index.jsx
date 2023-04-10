@@ -75,6 +75,7 @@ const Footer = ({ business = false }) => {
                           href="https://online.pgn.co.id/register/residensial"
                           className="content-footer"
                           isExternal
+                          target="_blank"
                         >
                           Registrasi
                         </Button>
