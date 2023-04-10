@@ -51,6 +51,7 @@ const Prosess = () => {
         href="https://online.pgn.co.id/register/residensial"
         className="btn-default px-md-5 btn-mobile"
         isExternal
+        target="_blank"
       >
         <div className="title">Daftar Sekarang</div>
       </Button>

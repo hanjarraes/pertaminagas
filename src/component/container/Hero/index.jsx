@@ -68,6 +68,8 @@ const Hero = ({ business }) => {
                   <a
                     href="https://online.pgn.co.id/register/residensial"
                     className="btn-default ml-0"
+                    target="_blank"
+                    rel="noreferrer noopener"
                   >
                     <div className="title">Daftar Sekarang</div>
                   </a>

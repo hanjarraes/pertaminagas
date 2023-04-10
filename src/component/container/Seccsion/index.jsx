@@ -3,8 +3,8 @@ import Button from "component/Button";
 
 const Seccsion = ({ dataSeccsion, business, id }) => {
   return (
-    <div className={`${business ? '' : 'gradient-bg'} seccsion`} id={id}>
-      <div className='title-seccsion' data-aos="fade-up">
+    <div className={`${business ? "" : "gradient-bg"} seccsion`} id={id}>
+      <div className="title-seccsion" data-aos="fade-up">
         {dataSeccsion.title}
       </div>
       <div className="desc-seccsion" data-aos="fade-up">
@@ -22,8 +22,15 @@ const Seccsion = ({ dataSeccsion, business, id }) => {
               >
                 <div className="d-flex flex-column align-items-center">
                   {data.logo}
-                  <div className='title-card-seccsion'>
-                    {data.gift ? <>{data.title}<span>*</span></> : data.title}
+                  <div className="title-card-seccsion">
+                    {data.gift
+                      ? (
+                        <>
+                          {data.title}
+                          <span>*</span>
+                        </>
+                      )
+                      : data.title}
                   </div>
                   <div className="desc-card-seccsion">
                     {data.decs.split(";").length > 1
@@ -44,15 +51,24 @@ const Seccsion = ({ dataSeccsion, business, id }) => {
         </div>
       </div>
 
-
-      {!business ? (
-        <>
-          <div className='syarat-dan-ketentuan'>*Syarat dan ketentuan berlaku</div>
-          <Button type='link' href="https://online.pgn.co.id/register/residensial" className='btn-default px-md-5 btn-mobile' isExternal>
-            <div className='title'>Daftar Sekarang</div>
-          </Button>
-        </>
-      ) : ""}
+      {!business
+        ? (
+          <>
+            <div className="syarat-dan-ketentuan">
+              *Syarat dan ketentuan berlaku
+            </div>
+            <Button
+              type="link"
+              href="https://online.pgn.co.id/register/residensial"
+              className="btn-default px-md-5 btn-mobile"
+              isExternal
+              target="_blank"
+            >
+              <div className="title">Daftar Sekarang</div>
+            </Button>
+          </>
+        )
+        : ""}
     </div>
   );
 };
