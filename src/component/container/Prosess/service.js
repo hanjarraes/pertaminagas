@@ -8,7 +8,7 @@ export const itemsData = [
     title: "Yuk Buruan Daftar",
     desc:
       "Segera daftarkan dirimu agar tidak perlu menunggu lebih lama lagi. Bantu kami mengetahui di lokasi mana saja yang menginginkan hadirnya GasKita, juaranya gas ngalir terus. Klik tombol biru 'Daftar Sekarang'",
-    ctaLink: "https://gaskita.com/daftar",
+    ctaLink: "https://online.pgn.co.id/register/residensial",
     ctaText: "Daftar Sekarang",
   },
   {
