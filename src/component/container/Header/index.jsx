@@ -29,7 +29,7 @@ const navBusiness = [
     href: "/business#CalculateSavings",
     title: "Calculate Savings",
   },
-  { href: "/business/#NaturalGasBenefits", title: "Natural Gas Benefits" },
+  { href: "/business#NaturalGasBenefits", title: "Natural Gas Benefits" },
   { href: "/", title: "Residential" },
 ];
 
