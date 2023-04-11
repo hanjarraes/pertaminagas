@@ -4,6 +4,7 @@ import LogoCall from "../../../assets/img/logoCallCenter.png";
 import Instagram from "../../../assets/img/Icon/Instagram.svg";
 import Twitter from "../../../assets/img/Icon/Twitter.svg";
 import { Facebook, Global, Sms, Youtube } from "iconsax-react";
+import { HashLink } from "react-router-hash-link";
 import Button from "component/Button";
 
 const navDefault = [
@@ -12,8 +13,8 @@ const navDefault = [
   { href: "/business", title: "Gas Untuk Industri" },
 ];
 const navBusiness = [
-  { href: "#CalculateSavings", title: "Calculate Savings" },
-  { href: "#NaturalGasBenefits", title: "Natural Gas Benefits" },
+  { href: "/business#CalculateSavings", title: "Calculate Savings" },
+  { href: "/business#NaturalGasBenefits", title: "Natural Gas Benefits" },
   { href: "/#home", title: "Residential" },
 ];
 const Footer = ({ business = false }) => {
@@ -53,14 +54,13 @@ const Footer = ({ business = false }) => {
                     ? (
                       navBusiness.map((data, idx) => {
                         return (
-                          <a
-                            href={data.href}
+                          <HashLink
+                            to={data.href}
                             className="content-footer"
-                            key={`footer-bisnis-${idx}`}
-                            isExternal={data.href.match(/business/g)}
+                            key={`nav-default-${idx}`}
                           >
                             {data.title}
-                          </a>
+                          </HashLink>
                         );
                       })
                     )

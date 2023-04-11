@@ -5,6 +5,7 @@ import Modal from "react-modal";
 import LogoPertamina from "../../../assets/img/Icon/Logo_Pertamina_Gas_Negara1.svg";
 import WhatsAppIcon from "../../../assets/img/Icon/whatsapp.png";
 import { BOOK_MEETING_URL } from "constants/meeting";
+import { HashLink } from "react-router-hash-link";
 import Button from "../../Button";
 
 const customStyles = {
@@ -24,8 +25,11 @@ const navDefault = [
   { href: "/business", title: "Gas Untuk Industri" },
 ];
 const navBusiness = [
-  { href: "#CalculateSavings", title: "Calculate Savings" },
-  { href: "#NaturalGasBenefits", title: "Natural Gas Benefits" },
+  {
+    href: "/business#CalculateSavings",
+    title: "Calculate Savings",
+  },
+  { href: "/business/#NaturalGasBenefits", title: "Natural Gas Benefits" },
   { href: "/", title: "Residential" },
 ];
 
@@ -64,9 +68,9 @@ const Header = ({ business }) => {
                           className="nav-item active mx-2"
                           key={`nav-default-${idx}`}
                         >
-                          <a className="nav-link" href={data.href}>
+                          <HashLink to={data.href} className="nav-link">
                             {data.title}
-                          </a>
+                          </HashLink>
                         </li>
                       );
                     })}
@@ -95,9 +99,9 @@ const Header = ({ business }) => {
                           className="nav-item active mx-2"
                           key={`nav-default-${idx}`}
                         >
-                          <a className="nav-link" href={data.href}>
+                          <HashLink to={data.href} className="nav-link">
                             {data.title}
-                          </a>
+                          </HashLink>
                         </li>
                       );
                     })}
