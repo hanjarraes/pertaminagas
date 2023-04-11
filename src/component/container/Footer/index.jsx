@@ -12,8 +12,8 @@ const navDefault = [
   { href: "/business", title: "Gas Untuk Industri" },
 ];
 const navBusiness = [
-  { href: "/business#CalculateSavings", title: "Calculate Savings" },
-  { href: "/business#NaturalGasBenefits", title: "Natural Gas Benefits" },
+  { href: "#CalculateSavings", title: "Calculate Savings" },
+  { href: "#NaturalGasBenefits", title: "Natural Gas Benefits" },
   { href: "/#home", title: "Residential" },
 ];
 const Footer = ({ business = false }) => {
