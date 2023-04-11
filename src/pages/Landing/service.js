@@ -31,7 +31,7 @@ export const dataSeccsion = {
         "Cara pakainya, cukup putar keran gas.\n Cara bayarnya, cukup dari ponsel saja",
     },
     {
-      logo: <StatusUp />,
+      logo: "AllDay",
       title: "Selalu Tersedia",
       decs:
         "24 Jam / 7 Hari, baik aliran gasnya maupun tim teknis yang selalu siap membantu Anda",

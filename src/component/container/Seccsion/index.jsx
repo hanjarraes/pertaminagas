@@ -1,5 +1,6 @@
 import React from "react";
 import Button from "component/Button";
+import AllDay from "../../../assets/img/Icon/allday.svg";
 
 const Seccsion = ({ dataSeccsion, business, id }) => {
   return (
@@ -21,7 +22,10 @@ const Seccsion = ({ dataSeccsion, business, id }) => {
                 data-aos="fade-up"
               >
                 <div className="d-flex flex-column align-items-center">
-                  {data.logo}
+                  {data.logo === "AllDay"
+                    ? <img src={AllDay} alt="AllDay" />
+                    : data.logo}
+
                   <div className="title-card-seccsion">
                     {data.gift
                       ? (
