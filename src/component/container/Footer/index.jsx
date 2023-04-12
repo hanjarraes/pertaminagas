@@ -104,6 +104,8 @@ const Footer = ({ business = false }) => {
                   <a
                     href="mailto:pcc135@pertamina.com"
                     className="content-footer"
+                    target="_blank"
+                    rel="noreferrer noopener"
                   >
                     <Sms /> pcc135@pertamina.com
                   </a>
