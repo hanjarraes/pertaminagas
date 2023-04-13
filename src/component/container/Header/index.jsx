@@ -39,7 +39,10 @@ const Header = ({ business }) => {
     <>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <div className="container">
-          <a className="navbar-brand d-flex" href={business ? "business" : "/"}>
+          <a
+            className="navbar-brand d-flex"
+            href={business ? "/business" : "/"}
+          >
             <div style={{ width: 141, height: 42 }}>
               <img
                 src={LogoPertamina}
