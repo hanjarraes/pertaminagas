@@ -1,5 +1,5 @@
 PROJECT_NAME:=coldstream
-BUILD_VERSION:=202301170911
+BUILD_VERSION:=202304131106
 
 build-image:
 	docker compose --project-name ${PROJECT_NAME} build web-home
